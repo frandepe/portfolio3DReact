@@ -1,5 +1,6 @@
 import { Environment, OrbitControls, ScrollControls } from "@react-three/drei";
 import { Jobs } from "./Jobs";
+// @ts-ignore
 import CaballoPortfolio from "../../../public/caballo/CaballoPortfolio";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";

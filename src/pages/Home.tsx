@@ -11,6 +11,7 @@ import {
 import { Suspense, useState } from "react";
 import * as THREE from "three";
 import { useMediaQuery } from "../hooks/useMediaQuery";
+// @ts-ignore
 import Caballo from "../../public/caballo/Caballo";
 import { BackgroundMouse } from "../components/BackgroundMouse/BackgroundMouse";
 // import Astronaut from "../../public/astronaut/Astronaut";
