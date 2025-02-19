@@ -3,7 +3,7 @@ import Button from "../../Button/Button";
 import { motion } from "framer-motion";
 import { I18nContext } from "../../../utils/i18nProvider";
 
-export const FinVideo = () => {
+export const VideoFinal = () => {
   const context = useContext(I18nContext);
   return (
     <motion.div

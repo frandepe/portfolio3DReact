@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Mesh, Points, BufferGeometry, BufferAttribute } from "three";
+import { Mesh, Points, BufferAttribute } from "three";
 import * as THREE from "three";
 
 const TransformingCubeToSphere: React.FC = () => {

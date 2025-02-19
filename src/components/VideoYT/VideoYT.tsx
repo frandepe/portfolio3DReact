@@ -12,8 +12,9 @@ import { MobAppWeb } from "./videoComponents/MobAppWeb";
 import { Formacion } from "./videoComponents/Formacion";
 import { Fullstack } from "./videoComponents/Fullstack";
 import { Hacking } from "./videoComponents/Hacking";
-import { FinVideo } from "./videoComponents/FinVIdeo";
+
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { VideoFinal } from "./videoComponents/VideoFinal";
 
 const VideoComponent = () => {
   const [currentTime, setCurrentTime] = useState(0); // Estado para almacenar el tiempo actual del video
@@ -145,7 +146,7 @@ const VideoComponent = () => {
             {currentTime > 44 && currentTime < 55 && <Fullstack />}
             {currentTime > 60 && currentTime < 63 && <Hacking />}
             {currentTime > 68 && currentTime < 74 && <Example3D />}
-            {currentTime > 77 && <FinVideo />}
+            {currentTime > 77 && <VideoFinal />}
           </motion.div>
         )}
       </div>
