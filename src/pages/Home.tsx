@@ -36,7 +36,11 @@ function Rig() {
 export const Home = () => {
   return (
     <BackgroundMouse>
-      <Canvas orthographic camera={{ position: [0, 0, 100], zoom: 80 }}>
+      <Canvas
+        orthographic
+        camera={{ position: [0, 0, 100], zoom: 80 }}
+        className="canvasCaballo"
+      >
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 10]} />

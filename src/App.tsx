@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { Home } from "./pages/Home";
-
 import Header from "./components/MainNavbar/Header";
 import AboutMe from "./pages/AboutMe";
 import Contact from "./pages/Contact";
@@ -12,51 +12,65 @@ import NDCapacitaciones from "./pages/Jobs/NDCapacitaciones";
 import PilsenDigital from "./pages/Jobs/PilsenDigital";
 import MilOpciones from "./pages/Practices/MilOpciones";
 
+function PageWrapper({ children }: any) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<AboutMe />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/jobs/guia-pellegrini" element={<GuiaPellegrini />} />
-        <Route path="/jobs/guruia" element={<GuruiaProject />} />
-        <Route path="/jobs/natura" element={<NaturaJob />} />
-        <Route path="/jobs/ndcapacitaciones" element={<NDCapacitaciones />} />
-        <Route path="/jobs/pilsen-digital" element={<PilsenDigital />} />
-        <Route path="/practices/mil-opciones" element={<MilOpciones />} />
-        {/*
-          <Route path="/logros" element={<Logros />} />
+      <AnimatePresence mode="sync">
+        <Routes>
           <Route
-            path="/certificado-confianza-comercial"
-            element={<CertificadoCC />}
+            path="/"
+            element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            }
           />
           <Route
-            path="/quiz-completed"
-            element={<QuizCertificateCompleted />}
-          />
-          <Route path="/quiz" element={<QuizCertificate />} />
-          <Route path="/amigos-sugeridos" element={<SuggestedFriendsPage />} />
-          <Route
-            path="/recomienda-milopciones"
-            element={<RecomiendaMaimark />}
+            path="/contact"
+            element={
+              <PageWrapper>
+                <Contact />
+              </PageWrapper>
+            }
           />
           <Route
-            path="/terminos-y-condiciones"
-            element={<TerminosYCondiciones />}
+            path="/about"
+            element={
+              <PageWrapper>
+                <AboutMe />
+              </PageWrapper>
+            }
           />
           <Route
-            path="/politicas-de-privacidad"
-            element={<PolíticasDePrivacidad />}
+            path="/portfolio"
+            element={
+              <PageWrapper>
+                <Portfolio />
+              </PageWrapper>
+            }
           />
-          <Route path="/politicas-de-cookies" element={<PoliticaDeCookies />} />
-          <Route
-            path="/configuracion-avanzada"
-            element={<ConfiguracionAvanzada />}
-          /> */}
-      </Routes>
+          <Route path="/jobs/guia-pellegrini" element={<GuiaPellegrini />} />
+          <Route path="/jobs/guruia" element={<GuruiaProject />} />
+          <Route path="/jobs/natura" element={<NaturaJob />} />
+          <Route path="/jobs/ndcapacitaciones" element={<NDCapacitaciones />} />
+          <Route path="/jobs/pilsen-digital" element={<PilsenDigital />} />
+          <Route path="/practices/mil-opciones" element={<MilOpciones />} />
+        </Routes>
+      </AnimatePresence>
     </BrowserRouter>
   );
 }

@@ -1,7 +1,8 @@
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Jobs.css";
+import { I18nContext } from "../../utils/i18nProvider";
 
 const Section = (props: any) => {
   return (
@@ -23,6 +24,7 @@ const Section = (props: any) => {
 };
 
 export const Jobs = () => {
+  const context = useContext(I18nContext);
   const scroll = useScroll();
   const [opacityFirstSection, setOpacityFirstSection] = useState(1);
   const [opacitySecondSection, setOpacitySecondSection] = useState(1);
@@ -39,30 +41,37 @@ export const Jobs = () => {
       <div className="w-screen">
         <Section opacity={opacityFirstSection}>
           <h1 className="font-semibold font-serif text-2xl">
-            Hello, I'm Franco De Paulo
+            {context?.t.translate("portfolio.presentation")}
           </h1>
-          <p className="text-gray-500">Welcome to my portfolio</p>
+          <p className="text-gray-500">
+            {context?.t.translate("portfolio.welcome")}
+          </p>
           <ul className="leading-9">
             <li>🖥️ Frontend</li>
             <li>🛠️ Backend</li>
-            <li>🗄️ Data Bases</li>
+            <li>🗄️ {context?.t.translate("portfolio.dataBases")}</li>
           </ul>
           <p className="animate-bounce  mt-6">↓</p>
         </Section>
 
         <Section right opacity={opacitySecondSection}>
           <h1 className="font-semibold font-serif text-2xl">
-            Professional Jobs 🏢
+            {context?.t.translate("portfolio.professionalJobs")} 🏢
           </h1>
-          <p className="text-gray-500">All it's a feature, not a bug</p>
+          <p className="text-gray-500">
+            {context?.t.translate("portfolio.jokeSubtitle1")}
+          </p>
           <p className="mt-3">
-            <b>Contracts</b>
+            <b>{context?.t.translate("portfolio.contracts")}</b>
           </p>
           <div className="Jobs__container--ul">
             <ul className="leading-9">
               <li>
                 <a href="/jobs/natura">
-                  Natura ✅ <span className="text-gray-500">(Actuality)</span>
+                  Natura ✅{" "}
+                  <span className="text-gray-500">
+                    {context?.t.translate("portfolio.actuality")}
+                  </span>
                 </a>
               </li>
               <li>
@@ -91,11 +100,13 @@ export const Jobs = () => {
         </Section>
         <Section opacity={opacityLastSection}>
           <h1 className="font-semibold font-serif text-2xl">
-            Practice Jobs 📚
+            {context?.t.translate("portfolio.practiceJobs")} 📚
           </h1>
-          <p className="text-gray-500">* On my PC works</p>
+          <p className="text-gray-500">
+            {context?.t.translate("portfolio.jokeSubtitle2")}
+          </p>
           <p className="mt-3">
-            <b>Projects</b>
+            <b>{context?.t.translate("portfolio.projects")}</b>
           </p>
           <div className="Jobs__container--ul">
             <ul className="leading-9">

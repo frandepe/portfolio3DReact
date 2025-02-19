@@ -1,14 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { gsap } from "gsap";
 import "./MainNavbar.css";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-const menu = [
-  { name: "Home", redirect: "/" },
-  { name: "About", redirect: "/about" },
-  { name: "Portfolio", redirect: "/portfolio" },
-  { name: "Contact", redirect: "/contact" },
-];
+import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
+import { I18nContext } from "../../utils/i18nProvider";
 
 const Header: React.FC = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -16,6 +11,14 @@ const Header: React.FC = () => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const menuBgRef = useRef<HTMLDivElement | null>(null);
   const menuItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const context = useContext(I18nContext);
+
+  const menu = [
+    { name: context?.t.translate("nav.home"), redirect: "/" },
+    { name: context?.t.translate("nav.about"), redirect: "/about" },
+    { name: context?.t.translate("nav.portfolio"), redirect: "/portfolio" },
+    { name: context?.t.translate("nav.contact"), redirect: "/contact" },
+  ];
 
   useEffect(() => {
     // Asegúrate de que las referencias estén listas
@@ -163,7 +166,7 @@ const Header: React.FC = () => {
             <ul>
               <li>
                 <a
-                  className="flex gap-2 items-center hover:opacity-80"
+                  className="flex gap-2 items-center hover:opacity-80 "
                   target="__blank"
                   href="https://www.linkedin.com/in/franco-de-paulo/"
                 >
@@ -180,10 +183,13 @@ const Header: React.FC = () => {
                 </a>
               </li>
 
-              <li>&copy;2024</li>
+              <li>&copy;2025</li>
             </ul>
           </div>
         </nav>
+      </div>
+      <div className="language-selector">
+        <LanguageSelector />
       </div>
       <button className="menu-toggle" onClick={toggleMenu}>
         <svg

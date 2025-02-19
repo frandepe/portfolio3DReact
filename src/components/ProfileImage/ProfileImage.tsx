@@ -5,9 +5,9 @@ const ProfileImage = () => {
     <div className="container">
       <div className="box">
         <div className="circle">
-          <img src="/imgs/perfilPortfolio3.png" alt="Profile" />
+          <img src="/imgs/foto2.png" alt="Profile" />
         </div>
-        <img src="/imgs/perfilPortfolio3.png" alt="Profile" />
+        <img src="/imgs/foto2.png" alt="Profile" />
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ import { Suspense } from "react";
 export const Animation = () => {
   return (
     <>
-      <Canvas>
-        <ambientLight intensity={1} />
+      <Canvas className="canvasCaballo">
+        <ambientLight intensity={20} />
         <ScrollControls pages={3} damping={0.25}>
           <Jobs />
           <OrbitControls

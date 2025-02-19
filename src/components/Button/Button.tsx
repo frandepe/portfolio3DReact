@@ -9,6 +9,7 @@ interface ButtonProps {
   download?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   download,
   disabled = false,
   type = "button",
+  onClick,
 }) => {
   return (
     <a href={href} download={download}>
@@ -27,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         style={{ backgroundColor: bgColor, color: color }}
         className="buttonDesign"
+        onClick={onClick}
       >
         {title}
       </button>

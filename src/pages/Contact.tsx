@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdLocationOn, MdEmail } from "react-icons/md";
 import { ContactForm } from "../components/ContactForm/ContactForm";
 import { BackgroundMouse } from "../components/BackgroundMouse/BackgroundMouse";
+import { I18nContext } from "../utils/i18nProvider";
 
 const Contact: React.FC = () => {
+  const context = useContext(I18nContext);
   return (
     <BackgroundMouse>
       <div>
         <main className="flex gap-6 flex-col lg:flex-row w-[90vw] sm:w-auto">
           <div className="lg:w-[600px] w-[90vw] flex flex-col justify-between gap-10 lg:gap-0">
             <div>
-              <h4 className="text-4xl mb-4">Get in touch</h4>
-              <p>
-                If you wish to contact me for job opportunities, collaborations,
-                or any questions, I will be pleased to hear from you. You can
-                write to me directly through the contact form or through the
-                alternatives you will find in this section.
-              </p>
+              <h4 className="text-4xl mb-4">
+                {context?.t.translate("contact.title")}
+              </h4>
+              <p>{context?.t.translate("contact.description")}</p>
             </div>
 
             <div className="flex gap-10 flex-wrap">
@@ -27,7 +26,9 @@ const Contact: React.FC = () => {
                   <MdLocationOn size={30} />
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-500">Ubication</p>
+                  <p className="font-semibold text-gray-500">
+                    {context?.t.translate("contact.ubication")}
+                  </p>
                   <p>La Plata, Argentina</p>
                 </div>
               </div>

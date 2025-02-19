@@ -2,57 +2,89 @@ import ProfileImage from "../components/ProfileImage/ProfileImage";
 import Button from "../components/Button/Button";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import { CarouselTech } from "../components/CarouselTech/CarouselTech";
+import { I18nContext } from "../utils/i18nProvider";
+import { useContext, useState } from "react";
+import { motion } from "framer-motion";
+import VideoYT from "../components/VideoYT/VideoYT";
 
 const AboutMe = () => {
+  const context = useContext(I18nContext);
+  const [isVideo, setIsVideo] = useState(true);
+  const handleClickVideo = () => {
+    setIsVideo(!isVideo);
+  };
   return (
     <main className="bg-#263a7a text-white">
-      <div className="flex flex-col items-center md:flex-row md:justify-center h-[100%] md:h-[80vh] ">
-        <SocialLinks />
-        <ProfileImage />
-        <div className="w-[90vw] md:w-auto flex items-center flex-col md:block">
-          <h3 className="text-[var(--primary)] font-semibold">Who am i?</h3>
-          <div className="sm:w-[500px] border-b pb-6 mb-6">
-            <p className="mb-2">
-              Frontend specialist, solid knowledge of backend and databases. I
-              am motivated to be in constant evolution and apply new
-              technologies. I was trained in web development at the NUCBA
-              bootcamp and I am constantly learning. Proactive, disciplined,
-              with clear purposes and willing to face great responsibilities.
-            </p>
-            <p>
-              At the beginning of 2022 I worked for a company with React Js and
-              WordPress. Currently I work for Natura as a Front-end developer. I
-              have more than 10 personal projects in my portfolio and I have
-              collaborated in group development work in No-Country and Alkemy
-              with Git tools and agile methodologies.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <p>
-              <span className="text-gray-400">Email</span>{" "}
-              frandepaulo23@gmail.com
-            </p>
-            <p>
-              <span className="text-gray-400">Country</span> Argentina
-            </p>
-            <p>
-              <span className="text-gray-400">City</span> La Plata
-            </p>
-            <p>
-              <span className="text-gray-400">Secret Talent</span> Moonwalking
-            </p>
-          </div>
-          <div>
-            <Button
-              bgColor="var(--primary)"
-              download="CV-Dev Franco De Paulo"
-              title="CV Download"
-              href="./Franco De Paulo - Frontend CV.pdf"
-            />
-            <Button title="Contact" href="/contact" />
+      <SocialLinks />
+      {isVideo ? (
+        <div className="flex flex-col items-center md:flex-row md:justify-center h-[100%] md:h-[80vh] ">
+          <ProfileImage />
+          <div className="w-[90vw] md:w-auto flex items-center flex-col md:block">
+            <h3 className="text-[var(--primary)] font-semibold">
+              {context?.t.translate("about.title")}
+            </h3>
+            <div className="sm:w-[500px] border-b pb-6 mb-6">
+              <p className="mb-2">
+                {context?.t.translate("about.description1")}
+              </p>
+              <p>{context?.t.translate("about.description2")}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <p>
+                <span className="text-gray-400">Email</span>{" "}
+                frandepaulo23@gmail.com
+              </p>
+              <p>
+                <span className="text-gray-400">
+                  {" "}
+                  {context?.t.translate("about.country")}
+                </span>{" "}
+                Argentina
+              </p>
+              <p>
+                <span className="text-gray-400">
+                  {context?.t.translate("about.city")}
+                </span>{" "}
+                La Plata
+              </p>
+              <p>
+                <span className="text-gray-400">
+                  {context?.t.translate("about.secretTalent")}
+                </span>{" "}
+                Moonwalking
+              </p>
+            </div>
+            <div className="flex gap-2 mb-6 md:mb-0">
+              <Button
+                bgColor="var(--primary)"
+                download="CV-Dev Franco De Paulo"
+                title={context?.t.translate("about.btnDownloadCV")}
+                href="/CV Franco De Paulo 2025.pdf"
+              />
+              <Button
+                title="Video"
+                bgColor="var(--tertiary)"
+                color="black"
+                onClick={handleClickVideo}
+              />
+              <Button
+                title={context?.t.translate("about.btnContact")}
+                href="/contact"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <motion.div
+          initial={{ y: "-100%" }} // Empieza fuera de la pantalla, arriba
+          animate={{ y: 0 }} // Finaliza en su posición original
+          exit={{ y: "-100%" }} // Se mueve hacia arriba al salir
+          transition={{ duration: 0.5, ease: "easeInOut" }} // Agregar un ease para un movimiento más fluido
+          className="flex flex-col items-center md:flex-row md:justify-center h-[100%] md:h-[80vh]"
+        >
+          <VideoYT />
+        </motion.div>
+      )}
       <CarouselTech />
     </main>
   );

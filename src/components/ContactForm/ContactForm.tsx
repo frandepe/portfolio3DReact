@@ -1,12 +1,14 @@
 import "react-toastify/dist/ReactToastify.css";
 
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "./ContactForm.css";
 import { useForm } from "../../hooks/useForm";
+import { I18nContext } from "../../utils/i18nProvider";
 
 export const ContactForm = () => {
+  const context = useContext(I18nContext);
   const [loading, setLoading] = useState<boolean>(false);
   const form: any = useRef();
   const {
@@ -27,7 +29,7 @@ export const ContactForm = () => {
     e.preventDefault();
     if (user_name.trim().length <= 2 || !isValidEmail(user_email)) {
       return toast.warning(
-        "You must fill in the email and name fields correctly"
+        context?.t.translate("contact.contactForm.validationError")
       );
     }
     setLoading(true);
@@ -42,12 +44,10 @@ export const ContactForm = () => {
         () => {
           setLoading(false);
 
-          toast.success("👌 Message sent! I will respond as soon as possible");
+          toast.success(context?.t.translate("contact.contactForm.success"));
         },
         () => {
-          toast.error(
-            "😲 Oops! The message could not be sent, please contact us at frandepaulo23@gmail.com."
-          );
+          toast.error(context?.t.translate("contact.contactForm.error404"));
         }
       );
     resetForm();
@@ -64,7 +64,9 @@ export const ContactForm = () => {
             type="text"
             name="user_name"
             id="outlined-basic"
-            placeholder="Name *"
+            placeholder={context?.t.translate(
+              "contact.contactForm.namePlaceholder"
+            )}
             value={user_name}
             onChange={onChange}
             style={{
@@ -92,7 +94,9 @@ export const ContactForm = () => {
           <input
             className="input-field p-2 w-full"
             type="number"
-            placeholder="Tel (optional)"
+            placeholder={context?.t.translate(
+              "contact.contactForm.telPlaceholder"
+            )}
             name="user_tel"
             value={user_tel}
             onChange={onChange}
@@ -101,7 +105,9 @@ export const ContactForm = () => {
 
         <textarea
           className="input-text w-full p-4 mt-4 h-52"
-          placeholder="Share your thoughts..."
+          placeholder={context?.t.translate(
+            "contact.contactForm.textareaPlaceholder"
+          )}
           value={message}
           onChange={onChange}
           name="message"
@@ -110,11 +116,11 @@ export const ContactForm = () => {
 
         {loading ? (
           <button className="button text-gray-100" disabled>
-            Sending...
+            {context?.t.translate("contact.contactForm.btnSending")}
           </button>
         ) : (
           <button className="button text-gray-100" type="submit">
-            Send Message
+            {context?.t.translate("contact.contactForm.btnSend")}
           </button>
         )}
       </form>
