@@ -6,6 +6,7 @@ import { I18nContext } from "../utils/i18nProvider";
 import { useContext, useState } from "react";
 import { motion } from "framer-motion";
 import VideoYT from "../components/VideoYT/VideoYT";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 const AboutMe = () => {
   const context = useContext(I18nContext);
@@ -13,12 +14,20 @@ const AboutMe = () => {
   const handleClickVideo = () => {
     setIsVideo(!isVideo);
   };
+  const desktop = "(max-width: 600px)";
+  const isDesktop = useMediaQuery(desktop);
   return (
     <main className="bg-#263a7a text-white">
       <SocialLinks />
       {isVideo ? (
-        <div className="flex flex-col items-center md:flex-row md:justify-center h-[100%] md:h-[80vh] ">
-          <ProfileImage />
+        <div
+          className={`flex flex-col items-center md:flex-row md:justify-center h-[100%] md:h-[80vh] ${
+            isDesktop ? "py-10" : "py-0"
+          }`}
+        >
+          <div>
+            <ProfileImage />
+          </div>
           <div className="w-[90vw] md:w-auto flex items-center flex-col md:block">
             <h3 className="text-[var(--primary)] font-semibold">
               {context?.t.translate("about.title")}
@@ -56,18 +65,20 @@ const AboutMe = () => {
             </div>
             <div className="flex gap-2 mb-6 md:mb-0">
               <Button
-                bgColor="var(--primary)"
+                variant="variant"
                 download="CV-Dev Franco De Paulo"
                 title={context?.t.translate("about.btnDownloadCV")}
                 href="/CV Franco De Paulo 2025.pdf"
               />
               <Button
+                variant="default"
                 title="Video"
                 bgColor="var(--tertiary)"
                 color="black"
                 onClick={handleClickVideo}
               />
               <Button
+                variant="variant"
                 title={context?.t.translate("about.btnContact")}
                 href="/contact"
               />

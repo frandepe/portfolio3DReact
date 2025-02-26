@@ -10,7 +10,12 @@ export const Animation = () => {
     <>
       <Canvas className="canvasCaballo">
         <ambientLight intensity={20} />
-        <ScrollControls pages={3} damping={0.25}>
+        <ScrollControls
+          pages={3}
+          damping={0.25}
+          // @ts-ignore
+          touch={{ enabled: true, smooth: 0.5, dragOnly: false }}
+        >
           <Jobs />
           <OrbitControls
             enableZoom={false}

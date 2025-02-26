@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
 import Example3D from "../Example3D/Example3D";
@@ -11,76 +11,50 @@ import { Techs } from "./videoComponents/Techs";
 import { MobAppWeb } from "./videoComponents/MobAppWeb";
 import { Formacion } from "./videoComponents/Formacion";
 import { Fullstack } from "./videoComponents/Fullstack";
+import { VideoFinal } from "./videoComponents/VideoFinal";
 import { Hacking } from "./videoComponents/Hacking";
 
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { VideoFinal } from "./videoComponents/VideoFinal";
 
 const VideoComponent = () => {
-  const [currentTime, setCurrentTime] = useState(0); // Estado para almacenar el tiempo actual del video
-  // const [intervalId, setIntervalId] = useState<number | null>(null); // Estado para almacenar el intervalo
-  const [movedLeft, setMovedLeft] = useState(false); // Estado para saber si el div se movió a la izquierda
+  const [currentTime, setCurrentTime] = useState(0);
+  const [movedLeft, setMovedLeft] = useState(false);
   const desktop = "(max-width: 600px)";
   const isDesktop = useMediaQuery(desktop);
+
+  const memoizedFullstack = useMemo(() => <Fullstack />, []);
+  const memoizedVideoFinal = useMemo(() => <VideoFinal />, []);
+
   const goAbout = () => {
     window.location.href = "/about";
   };
 
-  // const onEnded = () => {
-  //   console.log("Video terminó");
-  // };
-
-  // const onReady = () => {
-  //   console.log("Video is ready");
-  // };
-
   const onProgress = (state: any) => {
-    setCurrentTime(state.playedSeconds); // Estado con el tiempo actual del video
+    setCurrentTime(state.playedSeconds);
   };
 
-  // const onPause = () => {
-  //   if (intervalId) {
-  //     clearInterval(intervalId);
-  //     setIntervalId(null);
-  //   }
-  // };
-
-  // const onPlay = () => {
-  //   if (intervalId) {
-  //     clearInterval(intervalId);
-  //   }
-
-  //   const newIntervalId = setInterval(() => {
-  //     setCurrentTime((prevTime) => prevTime + 1);
-  //   }, 1000); // Actualizar cada segundo
-  //   setIntervalId(newIntervalId);
-  // };
-
   const videoOptions = {
-    autoplay: true, // Reproduce el video automáticamente
-    controls: false, // Ocultar los controles
-    // width: !isDesktop && "350px", // Ancho del video
-    // height: "390px", // Alto del video
+    autoplay: true,
+    controls: false,
     config: {
       vimeo: {
         playerOptions: {
-          autoplay: true, // Reproducción automática
-          controls: true, // Ocultar controles poner en false
-          dnt: true, // Evitar el seguimiento por parte de Vimeo
-          title: false, // No mostrar el título
-          byline: false, // No mostrar el nombre del autor
-          portrait: false, // No mostrar la imagen de perfil del autor
+          autoplay: true,
+          controls: true,
+          dnt: true,
+          title: false,
+          byline: false,
+          portrait: false,
         },
       },
     },
   };
 
-  // Efecto para cambiar el estado movedLeft cuando el tiempo es mayor a 4 segundos
   useEffect(() => {
     if (!isDesktop && currentTime > 2 && !movedLeft) {
       setMovedLeft(true);
     }
-  }, [currentTime, movedLeft]);
+  }, [currentTime, movedLeft, isDesktop]);
 
   return (
     <div>
@@ -110,7 +84,6 @@ const VideoComponent = () => {
         </button>
       </motion.div>
       <div className="flex">
-        {/* <StarsCanvas /> */}
         <motion.div
           initial={{ y: "100%" }}
           animate={{
@@ -121,15 +94,10 @@ const VideoComponent = () => {
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <ReactPlayer
-            url="https://vimeo.com/1058192971" // URL del video
-            playing={true} // El video comenzará a reproducirse automáticamente
-            // onReady={onReady}
-            // onPause={onPause}
-            // onPlay={onPlay}
-            width={isDesktop ? "100%" : "640px"} // Hace que el video ocupe todo el ancho disponible
-            // height="auto" // Ajusta la altura proporcionalmente
-            onProgress={onProgress} // Actualiza el estado con el progreso del video
-            // onEnded={onEnded}
+            url="https://vimeo.com/1058192971"
+            playing={true}
+            width={isDesktop ? "100%" : "640px"}
+            onProgress={onProgress}
             {...videoOptions}
           />
         </motion.div>
@@ -143,10 +111,10 @@ const VideoComponent = () => {
             {currentTime > 28 && currentTime < 35 && <Techs />}
             {currentTime > 36 && currentTime < 40 && <MobAppWeb />}
             {currentTime > 41 && currentTime < 43 && <Formacion />}
-            {currentTime > 44 && currentTime < 55 && <Fullstack />}
+            {currentTime > 44 && currentTime < 55 && memoizedFullstack}
             {currentTime > 60 && currentTime < 63 && <Hacking />}
             {currentTime > 68 && currentTime < 74 && <Example3D />}
-            {currentTime > 77 && <VideoFinal />}
+            {currentTime > 77 && memoizedVideoFinal}
           </motion.div>
         )}
       </div>

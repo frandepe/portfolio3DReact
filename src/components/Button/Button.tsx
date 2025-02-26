@@ -1,5 +1,6 @@
 import React from "react";
 import "./Button.css";
+import { GradientButton } from "../ui/gradient-button";
 
 interface ButtonProps {
   title: string;
@@ -8,6 +9,7 @@ interface ButtonProps {
   color?: string;
   download?: string;
   disabled?: boolean;
+  variant: "default" | "variant";
   type?: "button" | "submit" | "reset";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -15,8 +17,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   title,
   href,
-  bgColor,
-  color = "white",
+  variant,
   download,
   disabled = false,
   type = "button",
@@ -24,15 +25,16 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <a href={href} download={download}>
-      <button
+      <GradientButton
+        variant={variant}
         disabled={disabled}
         type={type}
-        style={{ backgroundColor: bgColor, color: color }}
-        className="buttonDesign"
+        // style={{ backgroundColor: bgColor, color: color }}
+        // className="buttonDesign"
         onClick={onClick}
       >
         {title}
-      </button>
+      </GradientButton>
     </a>
   );
 };

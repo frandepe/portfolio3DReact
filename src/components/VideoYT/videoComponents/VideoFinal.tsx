@@ -1,13 +1,14 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import Button from "../../Button/Button";
 import { motion } from "framer-motion";
 import { I18nContext } from "../../../utils/i18nProvider";
+import { GooeyTextDemo } from "@/components/GooeyText/GooeyText";
 
-export const VideoFinal = () => {
+const VideoFinalComponent = () => {
   const context = useContext(I18nContext);
   return (
     <motion.div
-      className="absolute top-[30%] left-[60%] flex flex-col items-center gap-4 p-6 
+      className="absolute top-[24%] left-[60%] flex flex-col items-center gap-4 p-6 
                  bg-black/60 text-white rounded-2xl shadow-xl backdrop-blur-lg
                  transform -translate-x-1/2 -translate-y-1/2"
       initial={{ y: 100, opacity: 0, scale: 0.9 }}
@@ -20,8 +21,11 @@ export const VideoFinal = () => {
       <Button
         title={context?.t.translate("about.finalVideo.btn")}
         href="/contact"
-        bgColor="var(--primary)"
+        variant="variant"
       />
+      <GooeyTextDemo />
     </motion.div>
   );
 };
+
+export const VideoFinal = memo(VideoFinalComponent);

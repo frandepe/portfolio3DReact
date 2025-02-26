@@ -7,9 +7,10 @@ import { I18nContext } from "../utils/i18nProvider";
 
 const Contact: React.FC = () => {
   const context = useContext(I18nContext);
+
   return (
     <BackgroundMouse>
-      <div>
+      <div className="mt-20 mb-4 md:mt-0 md:mb-0">
         <main className="flex gap-6 flex-col lg:flex-row w-[90vw] sm:w-auto">
           <div className="lg:w-[600px] w-[90vw] flex flex-col justify-between gap-10 lg:gap-0">
             <div>

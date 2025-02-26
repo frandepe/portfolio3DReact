@@ -14,7 +14,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 // @ts-ignore
 import Caballo from "../../public/caballo/Caballo";
 import { BackgroundMouse } from "../components/BackgroundMouse/BackgroundMouse";
-// import Astronaut from "../../public/astronaut/Astronaut";
+import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 
 function Rig() {
   const [vec] = useState(() => new THREE.Vector3());
@@ -34,22 +34,26 @@ function Rig() {
 }
 
 export const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <BackgroundMouse>
+      {isLoading && <LoadingScreen />}
       <Canvas
         orthographic
         camera={{ position: [0, 0, 100], zoom: 80 }}
         className="canvasCaballo"
+        onCreated={() => setIsLoading(false)}
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 10]} />
           <Scene />
-          <axesHelper
+          {/* <axesHelper
             scale={2}
             position={[0, 0, 0]}
             onUpdate={(self) => self.setColors("#ff2080", "#20ff80", "#2080ff")}
-          />
+          /> */}
           <OrbitControls
             enableZoom={false}
             enablePan={false}
