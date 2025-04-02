@@ -1,14 +1,4 @@
-import {
-  FaUniversalAccess,
-  FaMobileAlt,
-  FaAdjust,
-  FaPaintBrush,
-  FaTachometerAlt,
-  FaRocket,
-  FaGlobe,
-  FaDatabase,
-  FaSearch,
-} from "react-icons/fa";
+import { FaMobileAlt, FaSearch } from "react-icons/fa";
 import {
   MdBrush,
   MdBuild,

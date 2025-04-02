@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, PanInfo } from "framer-motion";
+import { motion } from "framer-motion";
 
 type TestimonialCardProps = {
   handleShuffle: () => void;
@@ -44,10 +44,7 @@ export function TestimonialCard({
           dragRef.current = event.clientX;
         }
       }}
-      onDragEnd={(
-        event: MouseEvent | TouchEvent | PointerEvent,
-        info: PanInfo
-      ) => {
+      onDragEnd={(event: MouseEvent | TouchEvent | PointerEvent) => {
         if (
           event instanceof MouseEvent &&
           dragRef.current - event.clientX > 150

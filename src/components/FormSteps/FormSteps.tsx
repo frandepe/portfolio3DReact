@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 import Button from "../Button/Button";
 import {
   Stepper,
-  StepperDescription,
   StepperIndicator,
   StepperItem,
-  StepperTitle,
   StepperTrigger,
 } from "../ui/stepper";
 

@@ -1,12 +1,8 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
 import * as React from "react";
 import { createContext, useContext } from "react";
 import { FiLoader } from "react-icons/fi";
-import { IoFootsteps, IoFootstepsOutline } from "react-icons/io5";
-import { MdCheckCircleOutline } from "react-icons/md";
 
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 // Types
@@ -202,7 +198,7 @@ const StepperIndicator = React.forwardRef<
   HTMLDivElement,
   StepperIndicatorProps
 >(({ asChild = false, className, children, ...props }, ref) => {
-  const { state, step, isLoading } = useStepItem();
+  const { state, isLoading } = useStepItem();
 
   return (
     <div
