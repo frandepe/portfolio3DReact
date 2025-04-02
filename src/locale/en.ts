@@ -12,6 +12,7 @@ const en = {
     about: "About",
     portfolio: "Portfolio",
     contact: "Contact",
+    yourWeb: "I develop your web",
   },
   about: {
     title: "Who am i?",

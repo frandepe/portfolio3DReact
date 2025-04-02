@@ -11,6 +11,7 @@ import NaturaJob from "./pages/Jobs/Natura";
 import NDCapacitaciones from "./pages/Jobs/NDCapacitaciones";
 import PilsenDigital from "./pages/Jobs/PilsenDigital";
 import MilOpciones from "./pages/Practices/MilOpciones";
+import WebForClient from "./pages/WebForClient";
 
 function PageWrapper({ children }: any) {
   return (
@@ -60,6 +61,14 @@ function App() {
             element={
               <PageWrapper>
                 <Portfolio />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tu-web"
+            element={
+              <PageWrapper>
+                <WebForClient />
               </PageWrapper>
             }
           />

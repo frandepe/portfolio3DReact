@@ -18,6 +18,7 @@ const Header: React.FC = () => {
     { name: context?.t.translate("nav.about"), redirect: "/about" },
     { name: context?.t.translate("nav.portfolio"), redirect: "/portfolio" },
     { name: context?.t.translate("nav.contact"), redirect: "/contact" },
+    { name: context?.t.translate("nav.yourWeb"), redirect: "/tu-web" },
   ];
 
   useEffect(() => {

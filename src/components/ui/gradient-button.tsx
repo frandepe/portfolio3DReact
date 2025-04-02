@@ -5,19 +5,21 @@ import { cn } from "@/lib/utils";
 
 const gradientButtonVariants = cva(
   [
-    "gradient-button",
     "inline-flex items-center justify-center",
-    "rounded-[11px] min-w-[66px] px-4 py-2",
-    "text-sm leading-[19px] font-[500] text-white",
-    "font-sans font-bold",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+    "rounded-lg min-w-[66px] px-5 py-2",
+    "text-sm font-medium text-gray-200",
+    "bg-gradient-to-r from-gray-800 to-gray-700",
+    "border border-gray-600",
+    "shadow-md transition-all duration-300 ease-in-out",
+    "hover:bg-gray-700 hover:border-gray-500",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
   {
     variants: {
       variant: {
         default: "",
-        variant: "gradient-button-variant",
+        variant: "bg-gray-900 text-gray-300 hover:bg-gray-800",
       },
     },
     defaultVariants: {

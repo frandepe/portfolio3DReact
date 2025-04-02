@@ -6,33 +6,20 @@ import "./CarouselTech.css";
 
 SwiperCore.use([EffectCoverflow, Pagination]);
 
-export const CarouselTech = () => {
+export const CarouselTechFreelance = () => {
   const data = [
-    { icon: "/imgs/icons/HTML5.png", tech: "HTML" },
-    { icon: "/imgs/icons/CSS3.png", tech: "CSS" },
-    { icon: "/imgs/icons/Sass.png", tech: "Sass" },
-    { icon: "/imgs/icons/JavaScript.png", tech: "JavaScript" },
-    { icon: "/imgs/icons/TypeScript.png", tech: "TypeScript" },
-    { icon: "/imgs/icons/react.png", tech: "React" },
     { icon: "/imgs/icons/Astro.png", tech: "Astro" },
     { icon: "/imgs/icons/Next.js.png", tech: "Next" },
-    { icon: "/imgs/icons/Express.png", tech: "Express" },
+    { icon: "/imgs/icons/react.png", tech: "React" },
+    { icon: "/imgs/icons/JavaScript.png", tech: "JavaScript" },
+    { icon: "/imgs/icons/TypeScript.png", tech: "TypeScript" },
     { icon: "/imgs/icons/Node.js.png", tech: "Node.js" },
-    { icon: "/imgs/icons/Python.png", tech: "Python" },
-    { icon: "/imgs/icons/Flask.png", tech: "Flask" },
-    { icon: "/imgs/icons/MongoDB.png", tech: "MongoDB" },
-    { icon: "/imgs/icons/Mongoose.js.png", tech: "Mongoose" },
+    { icon: "/imgs/icons/Express.png", tech: "Express" },
     { icon: "/imgs/icons/MySQL.png", tech: "MySQL" },
+    { icon: "/imgs/icons/MongoDB.png", tech: "MongoDB" },
+    { icon: "/imgs/icons/Strapi.png", tech: "Strapi" },
     { icon: "/imgs/icons/TailwindCSS.png", tech: "Tailwind" },
     { icon: "/imgs/icons/MaterialUI.png", tech: "Material UI" },
-    { icon: "/imgs/icons/Bootstrap.png", tech: "Bootstrap" },
-    { icon: "/imgs/icons/shadcn.png", tech: "Shadcn" },
-    { icon: "/imgs/icons/Strapi.png", tech: "Strapi" },
-    { icon: "/imgs/icons/WordPress.png", tech: "WordPress" },
-    { icon: "/imgs/icons/Salesforce.png", tech: "Salesforce" },
-    { icon: "/imgs/icons/Drupal.png", tech: "Drupal" },
-    { icon: "/imgs/icons/Redux.png", tech: "Redux" },
-    { icon: "/imgs/icons/Git.png", tech: "Git" },
   ];
 
   return (
@@ -81,7 +68,7 @@ export const CarouselTech = () => {
             key={e.tech}
             style={{ backgroundImage: `url(${e.icon})` }}
           >
-            <p>{e.tech}</p>
+            <p className="text-gray-400">{e.tech}</p>
           </SwiperSlide>
         ))}
       </Swiper>
