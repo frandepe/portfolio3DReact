@@ -67,7 +67,7 @@ export default function IconsTuWeb() {
         {cualidades.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center p-4"
+            className="flex flex-col items-center text-center p-4 max-w-[400px] w-full mx-auto"
           >
             <div className="text-3xl text-[var(--primary)] mb-2">
               {item.icon}

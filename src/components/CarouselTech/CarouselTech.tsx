@@ -28,6 +28,7 @@ export const CarouselTech = () => {
     { icon: "/imgs/icons/Bootstrap.png", tech: "Bootstrap" },
     { icon: "/imgs/icons/shadcn.png", tech: "Shadcn" },
     { icon: "/imgs/icons/Strapi.png", tech: "Strapi" },
+    { icon: "/imgs/icons/Supabase.png", tech: "Supabase" },
     { icon: "/imgs/icons/WordPress.png", tech: "WordPress" },
     { icon: "/imgs/icons/Salesforce.png", tech: "Salesforce" },
     { icon: "/imgs/icons/Drupal.png", tech: "Drupal" },

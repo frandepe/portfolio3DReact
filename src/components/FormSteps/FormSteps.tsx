@@ -8,6 +8,7 @@ import {
   StepperItem,
   StepperTrigger,
 } from "../ui/stepper";
+import { ToastContainer, toast } from "react-toastify";
 
 const { VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY } = import.meta.env;
 
@@ -138,6 +139,8 @@ export default function FormSteps() {
   const [customTypeForWeb, setCustomTypeForWeb] = useState<string>("");
   const [customReference, setCustomReference] = useState<string>("");
   const [customFuncionality, setCustomFuncionality] = useState<string>("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNext = () => {
     if (step < steps.length - 1) setStep(step + 1);
@@ -167,6 +170,8 @@ export default function FormSteps() {
   };
 
   const handleSubmit = async () => {
+    if (submitted) return;
+    setLoading(true);
     // Usamos finalAnswers directamente
     const finalAnswers = { ...answers };
 
@@ -205,21 +210,28 @@ export default function FormSteps() {
       .insert([finalAnswers]);
 
     if (!error) {
-      alert("Formulario enviado con éxito");
+      toast.success(
+        "¡Gracias por tu interés! Recibí tu solicitud y me pondré en contacto contigo a la brevedad para conversar sobre tu proyecto."
+      );
+      setSubmitted(true); // Deshabilita el botón tras el envío exitoso
     } else {
-      alert("Hubo un error al enviar el formulario");
+      toast.error(
+        "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez."
+      );
     }
+    setLoading(false);
   };
 
   return (
     <motion.div
-      className="w-full md:w-[500px] h-full md:h-[450px] mx-auto p-6 rounded-xl border-[0.5px] flex flex-col"
+      className="w-full md:w-[500px] h-[500px] mx-auto p-6 rounded-xl border-[0.5px] border-gray-500 flex flex-col"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <ToastContainer position="bottom-center" limit={1} />
       <div className="flex justify-between items-center mb-4">
-        <span className="text-gray-700 text-sm">
+        <span className="text-gray-400 text-sm">
           Paso {step + 1} de {steps.length}
         </span>
       </div>
@@ -237,14 +249,14 @@ export default function FormSteps() {
 
       <h2 className="text-lg font-bold mb-2">{steps[step].question}</h2>
       {steps[step].description && (
-        <p className="text-gray-800 mb-4">{steps[step].description}</p>
+        <p className="text-gray-200 mb-4">{steps[step].description}</p>
       )}
 
       {steps[step].type === "select" && (
         <div className="relative">
           <select
             onChange={(e) => handleChange(e.target.value)}
-            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-300 rounded pl-3 pr-8 py-1.5 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
+            className="w-full bg-[#13151a] placeholder:text-slate-400 text-slate-300 border border-slate-300 rounded pl-3 pr-8 py-1.5 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer"
             value={answers[steps[step].key] || ""}
           >
             <option value="" disabled>
@@ -332,7 +344,7 @@ export default function FormSteps() {
           <input
             type="text"
             placeholder="Especifica los ejemplos de diseño"
-            className="w-full mt-4 bg-transparent placeholder:text-slate-700 text-slate-700  border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
+            className="w-full mt-4 bg-transparent placeholder:text-slate-400 text-slate-300  border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
             value={customReference} // Aquí se asegura que el valor se actualice desde el estado correcto
             onChange={(e) => setCustomReference(e.target.value)} // Actualización del estado
           />
@@ -340,7 +352,7 @@ export default function FormSteps() {
 
       {steps[step].type === "textarea" && (
         <textarea
-          className="w-full h-32 bg-transparent placeholder:text-slate-700 text-slate-700 border border-slate-300 rounded p-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
+          className="w-full h-32 bg-transparent placeholder:text-slate-400 text-slate-300 border border-slate-300 rounded p-3 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
           placeholder="Comparte cualquier detalle adicional sobre la web"
           value={answers[steps[step].key] || ""}
           onChange={(e) => handleChange(e.target.value)}
@@ -350,7 +362,7 @@ export default function FormSteps() {
       {steps[step].type === "text" && (
         <input
           type="text"
-          className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
+          className="w-full bg-transparent placeholder:text-slate-400 text-slate-300 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
           placeholder={steps[step].question}
           value={answers[steps[step].key] || ""}
           onChange={(e) => handleChange(e.target.value)}
@@ -363,7 +375,7 @@ export default function FormSteps() {
           <input
             type="text"
             placeholder="Especifica el tipo de web"
-            className="w-full mt-4 bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
+            className="w-full mt-4 bg-transparent placeholder:text-slate-400 text-slate-300 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
             value={customTypeForWeb} // Usamos un estado diferente aquí
             onChange={(e) => setCustomTypeForWeb(e.target.value)} // Cambiamos el manejador de este input
           />
@@ -374,7 +386,7 @@ export default function FormSteps() {
           <input
             type="text"
             placeholder="Especifica las secciones"
-            className="w-full my-4 bg-transparent placeholder:text-slate-400 text-slate-700 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
+            className="w-full my-4 bg-transparent placeholder:text-slate-400 text-slate-300 border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
             value={customTypeForSections} // Usamos otro estado diferente para este input
             onChange={(e) => setCustomTypeForSections(e.target.value)} // Manejador distinto para el cambio en este input
           />
@@ -385,20 +397,25 @@ export default function FormSteps() {
           <input
             type="text"
             placeholder="Especifica las funciones"
-            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700  border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
+            className="w-full bg-transparent placeholder:text-slate-400 text-slate-300  border border-slate-300 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none"
             value={customFuncionality}
             onChange={(e) => setCustomFuncionality(e.target.value)}
           />
         )}
 
-      <div className="mt-auto flex justify-between">
+      <div className="mt-auto flex justify-between ">
         {step > 0 && (
           <Button variant="variant" title="Atras" onClick={handleBack} />
         )}
         {step < steps.length - 1 ? (
           <Button variant="variant" title="Siguiente" onClick={handleNext} />
         ) : (
-          <Button variant="default" title="Enviar" onClick={handleSubmit} />
+          <Button
+            variant="default"
+            onClick={handleSubmit}
+            disabled={loading || submitted} // Se desactiva si está cargando o enviado
+            title={loading ? "Enviando..." : submitted ? "Enviado" : "Enviar"}
+          />
         )}
       </div>
     </motion.div>

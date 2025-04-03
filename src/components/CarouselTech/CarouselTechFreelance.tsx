@@ -18,6 +18,7 @@ export const CarouselTechFreelance = () => {
     { icon: "/imgs/icons/MySQL.png", tech: "MySQL" },
     { icon: "/imgs/icons/MongoDB.png", tech: "MongoDB" },
     { icon: "/imgs/icons/Strapi.png", tech: "Strapi" },
+    { icon: "/imgs/icons/Supabase.png", tech: "Supabase" },
     { icon: "/imgs/icons/TailwindCSS.png", tech: "Tailwind" },
     { icon: "/imgs/icons/MaterialUI.png", tech: "Material UI" },
   ];

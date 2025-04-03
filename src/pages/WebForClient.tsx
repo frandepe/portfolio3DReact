@@ -5,7 +5,7 @@ import { DatabaseMotion } from "@/components/DatabaseMotion/DatabaseMotion";
 import { Faq } from "@/components/Faq/Faq";
 import FormSteps from "@/components/FormSteps/FormSteps";
 import IconsTuWeb from "@/components/IconsTuWeb/IconsTuWeb";
-import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
+
 import ScrollVelocity from "@/components/ScrollVelocity/ScrollVelocity";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import StarsCanvas from "@/components/StarsBackground/StarBackground";
@@ -13,14 +13,24 @@ import { TextWithImageMotion } from "@/components/TextWithImageMotion/TextWithIm
 import AnimatedWordCycle from "@/components/ui/animated-text-cycle";
 import { Globe } from "@/components/ui/globe";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const WebForClient = () => {
+  const formularioRef = useRef<HTMLDivElement | null>(null);
+
+  const handleScroll = () => {
+    if (formularioRef.current) {
+      formularioRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div>
-      <div className="h-[500px] relative text-slate-200 container flex flex-col justify-center z-50">
+      <div
+        className="min-h-[400px] md:h-[500px] w-full relative text-slate-200 flex flex-col items-center justify-center z-50"
+        onClick={handleScroll}
+      >
         <StarsCanvas />
-        {/* <h2 className="text-5xl font-bold">Tu Web, Tu Éxito</h2> */}
-        <h2 className="text-5xl font-bold">
+        <h2 className="text-3xl md:text-5xl font-bold">
           Desarrollo{" "}
           <AnimatedWordCycle
             words={["tu web", "tu marca", "tu éxito"]}
@@ -28,22 +38,24 @@ const WebForClient = () => {
             className={"text-foreground font-semi-bold"}
           />
         </h2>
-        <h5 className="text-lg my-4 max-w-4xl">
+
+        <h5 className="text-base md:text-lg my-4 max-w-[800px] mx-4">
           Desde el diseño hasta la optimización, te ayudo a construir un sitio
           web que impulse tu negocio. Tu empresa ganará visibilidad, mejorarás
           la interacción con tus clientes y maximizarás tu alcance online.
         </h5>
+
         <Button title="Presupuestar" variant="variant" />
       </div>
+
       <ScrollVelocity
         texts={["Impacto Conexión", "Crecimiento Innovación"]}
-        // texts={["Conexión Innovación", "Impacto Crecimiento"]}
         velocity={20}
         className="custom-scroll-text text-gray-400"
       />
-      <div className="flex justify-center gap-4 container mt-40 text-slate-200">
+      <div className="flex flex-col md:flex-row justify-center gap-4 xl:container mt-20 md:mt-64 text-slate-200">
         <SpotlightCard
-          className="w-[40%] flex flex-col overflow-hidden"
+          className="w-full md:w-[40%] flex flex-col overflow-hidden"
           spotlightColor="rgba(99, 124, 206, 0.5)"
         >
           <div className="p-4">
@@ -73,7 +85,7 @@ const WebForClient = () => {
 
         <SpotlightCard
           spotlightColor="rgba(99, 124, 206, 0.5)"
-          className="w-[60%] overflow-hidden"
+          className="w-full md:w-[60%] overflow-hidden"
         >
           <div className="p-4">
             <div className="p-4">
@@ -93,22 +105,23 @@ const WebForClient = () => {
           </div>
         </SpotlightCard>
       </div>
-      <div className="flex justify-center gap-4 container mt-4 text-slate-200">
+      <div className="flex flex-col md:flex-row justify-center gap-4 xl:container mt-4 text-slate-200">
         <SpotlightCard
           spotlightColor="rgba(99, 124, 206, 0.5)"
-          className="w-[60%] overflow-hidden"
+          className="w-full md:w-[60%] h-[400px] md:h-auto"
         >
-          <div className="relative flex size-full items-center justify-center overflow-hidden px-40 pb-40 pt-8 md:pb-60 ">
-            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+          <div className="relative flex size-full items-center justify-center overflow-hidden px-8 pb-64 pt-8 md:px-40 md:pb-60">
+            <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-4xl md:text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
               Máxima conexión
             </span>
-            <Globe className="top-28" />
+            <Globe className="top-20 md:top-28" />
             <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
           </div>
         </SpotlightCard>
+
         <SpotlightCard
           spotlightColor="rgba(99, 124, 206, 0.5)"
-          className="w-[40%] overflow-hidden"
+          className="w-full md:w-[40%]"
         >
           <div className="p-4">
             <h4 className="text-lg font-bold mb-1">El Código Es Tuyo</h4>
@@ -121,43 +134,40 @@ const WebForClient = () => {
           <CodeIsYour />
         </SpotlightCard>
       </div>
+
       {/* Stack de trabajo */}
       <div className="mt-60">
         <h4 className="text-slate-200 text-4xl text-center mb-10">
-          Stack de trabajo
+          Mi Stack de trabajo
         </h4>
         <CarouselTechFreelance />
       </div>
-      <div className="container">
+      <div className="sm:container">
         <IconsTuWeb />
       </div>
       <TextWithImageMotion />
 
-      {/* <CircularText
-        text="REACT*BITS*COMPONENTS*"
-        onHover="speedUp"
-        spinDuration={20}
-        className="custom-class"
-      /> */}
-      <div className="container">
-        <ScrollReveal
-          baseOpacity={0}
-          enableBlur={true}
-          baseRotation={7}
-          blurStrength={10}
-        >
-          Cuéntame sobre tu web ideal. Completa este formulario con los detalles
-          clave para que pueda entender tus necesidades y brindarte un
-          presupuesto acorde a tu proyecto.
-        </ScrollReveal>
-      </div>
-      <div
-        id="formsteps"
-        className="bg-[var(--primary)] py-6 flex items-center justify-center"
+      <SpotlightCard
+        className="py-4 flex items-center justify-center text-slate-200"
+        spotlightColor="rgba(99, 124, 206, 0.5)"
       >
-        {/* <ShuffleCards /> */}
-        <FormSteps />
-      </div>
+        <div
+          className="container flex lg:items-center gap-10 flex-col lg:flex-row"
+          ref={formularioRef}
+          id="formulario"
+        >
+          <div className="">
+            <h2 className="text-2xl mb-2">¿Comenzamos?</h2>
+            <h4 className="lg:w-[500px] w-[350px]">
+              Cuéntame sobre tu web ideal. Completa el formulario con los
+              detalles clave para que pueda entender tus necesidades y brindarte
+              un presupuesto acorde a tu proyecto.
+            </h4>
+          </div>
+          <FormSteps />
+        </div>
+      </SpotlightCard>
+
       <div className="flex flex-col items-center my-20">
         <h4 className="text-slate-200 text-4xl text-center mb-10">
           Preguntas frecuentes
@@ -171,6 +181,13 @@ const WebForClient = () => {
         direction="up"
         duration={1}
         className="count-up-text"
+      /> */}
+      {/* <ShuffleCards /> */}
+      {/* <CircularText
+        text="REACT*BITS*COMPONENTS*"
+        onHover="speedUp"
+        spinDuration={20}
+        className="custom-class"
       /> */}
     </div>
   );

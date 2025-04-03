@@ -25,9 +25,9 @@ const VideoComponent = () => {
   const memoizedFullstack = useMemo(() => <Fullstack />, []);
   const memoizedVideoFinal = useMemo(() => <VideoFinal />, []);
 
-  const goAbout = () => {
-    window.location.href = "/about";
-  };
+  // const goAbout = () => {
+  //   window.location.href = "/about";
+  // };
 
   const onProgress = (state: any) => {
     setCurrentTime(state.playedSeconds);
@@ -67,7 +67,7 @@ const VideoComponent = () => {
         exit={{ y: "-100%" }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
-        <button
+        {/* <button
           className="z-[99999999999] cursor-pointer text-white"
           onClick={goAbout}
         >
@@ -81,7 +81,7 @@ const VideoComponent = () => {
             <path d="M14.71 15.88 10.83 12l3.88-3.88a.996.996 0 1 0-1.41-1.41L8.71 11.3a.996.996 0 0 0 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42Z"></path>
             <metadata>arrow, arrows, keyboard, left</metadata>
           </svg>
-        </button>
+        </button> */}
       </motion.div>
       <div className="flex">
         <motion.div

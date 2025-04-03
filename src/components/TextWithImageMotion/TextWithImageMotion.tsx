@@ -6,12 +6,8 @@ export function TextWithImageMotion() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold text-slate-200 dark:text-white">
-              Experiencia en el eCommerce líder de cosmética en Latinoamérica{" "}
-              <br />
-              {/* <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                Scroll Animations
-              </span> */}
+            <h1 className="text-2xl md:text-4xl font-semibold text-slate-200 dark:text-white mx-4">
+              Experiencia en el eCommerce líder de cosmética en Latinoamérica
             </h1>
           </>
         }
