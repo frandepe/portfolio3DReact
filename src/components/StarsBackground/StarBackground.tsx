@@ -5,6 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 // @ts-ignore
 import * as random from "maath/random/dist/maath-random.esm";
+import { LoadingScreen } from "../LoadingScreen/LoadingScreen";
 
 const StarBackground = (props: any) => {
   const ref: any = useRef();
@@ -22,24 +23,33 @@ const StarBackground = (props: any) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="$fff"
+          color="#fff"
           size={0.002}
           sizeAttenuation={true}
-          dethWrite={false}
+          depthWrite={false}
         />
       </Points>
     </group>
   );
 };
 
-const StarsCanvas = () => (
-  <div className="absolute w-full h-full">
-    <Canvas camera={{ position: [0, 0, 1] }} className="w-full h-full">
-      <Suspense fallback={null}>
-        <StarBackground />
-      </Suspense>
-    </Canvas>
-  </div>
-);
+const StarsCanvas = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <div className="absolute w-full h-full">
+      {isLoading && <LoadingScreen />}
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        className="w-full h-full"
+        onCreated={() => setIsLoading(false)}
+      >
+        <Suspense fallback={null}>
+          <StarBackground />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+};
 
 export default StarsCanvas;

@@ -12,6 +12,7 @@ import NDCapacitaciones from "./pages/Jobs/NDCapacitaciones";
 import PilsenDigital from "./pages/Jobs/PilsenDigital";
 import MilOpciones from "./pages/Practices/MilOpciones";
 import WebForClient from "./pages/WebForClient";
+import Congreso from "./pages/Jobs/Congreso";
 
 function PageWrapper({ children }: any) {
   return (
@@ -77,6 +78,7 @@ function App() {
           <Route path="/jobs/natura" element={<NaturaJob />} />
           <Route path="/jobs/ndcapacitaciones" element={<NDCapacitaciones />} />
           <Route path="/jobs/pilsen-digital" element={<PilsenDigital />} />
+          <Route path="/jobs/congreso" element={<Congreso />} />
           <Route path="/practices/mil-opciones" element={<MilOpciones />} />
         </Routes>
       </AnimatePresence>

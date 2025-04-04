@@ -26,7 +26,7 @@ const WebForClient = () => {
   return (
     <div>
       <div
-        className="min-h-[400px] md:h-[500px] w-full relative text-slate-200 flex flex-col items-center justify-center z-50"
+        className="min-h-[400px] md:h-[500px] w-full relative text-slate-200 flex flex-col items-center justify-center"
         onClick={handleScroll}
       >
         <StarsCanvas />

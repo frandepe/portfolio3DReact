@@ -3,14 +3,14 @@ import { Back } from "../../components/Back/Back";
 import { Carousel3D } from "../../components/Carousel3D/Carousel3D";
 import { I18nContext } from "@/utils/i18nProvider";
 
-const GuiaPellegrini: React.FC = () => {
+const Congreso: React.FC = () => {
   const context = useContext(I18nContext);
   const images = [
-    "/assets/guia/guia1.jpg",
-    "/assets/guia/guia2.jpg",
-    "/assets/guia/guia3.jpg",
-    "/assets/guia/guia4.jpg",
-    "/assets/guia/guia5.jpg",
+    "/assets/congreso/congreso2.jpg",
+    "/assets/congreso/congreso1.jpg",
+    "/assets/congreso/congreso3.jpg",
+    "/assets/congreso/congreso4.jpg",
+    "/assets/congreso/congreso5.jpg",
   ];
 
   return (
@@ -19,25 +19,25 @@ const GuiaPellegrini: React.FC = () => {
         <div className="flex gap-2 items-end">
           <Back />
           <img
-            src="/assets/guia/logoNaranja.png"
+            src="/assets/congreso/logoCongreso.png"
             alt="Guía Pellegrini"
-            className="w-12"
+            className="w-20"
           />
-          <h2 className="text-3xl md:text-6xl">Guía Pellegrini</h2>
+          <h2 className="text-3xl md:text-6xl">Congreso Nacional de RCP</h2>
         </div>
 
         <div className="containerCarousel3D flex justify-center my-10">
           <Carousel3D
             imgs={images}
-            web="https://guiapelle-git-main-frandepe.vercel.app/"
-            github="https://github.com/frandepe/front-todopelle"
+            web="https://congresonacionalrcp.com.ar/"
+            github="https://github.com/frandepe/congreso2025"
           />
         </div>
 
         <div className="text-white-100">
           <div className="max-w-4xl mx-auto p-6 my-10">
             <h1 className="text-3xl font-bold text-center mb-6">
-              {context?.t.translate("job.guiaPellegrini.title")}
+              {context?.t.translate("job.congreso.title")}
             </h1>
 
             <div className="mb-6">
@@ -47,30 +47,38 @@ const GuiaPellegrini: React.FC = () => {
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  {context?.t.translate("job.guiaPellegrini.rt1")}
+                  {context?.t.translate("job.congreso.rt1")}
                 </h3>
-                <p>{context?.t.translate("job.guiaPellegrini.rd1")}</p>
+                <p>
+                  <p>{context?.t.translate("job.congreso.rd1")}</p>
+                </p>
               </div>
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  {context?.t.translate("job.guiaPellegrini.rt2")}
+                  {context?.t.translate("job.congreso.rt2")}
                 </h3>
-                <p>{context?.t.translate("job.guiaPellegrini.rd2")}</p>
+                <p>{context?.t.translate("job.congreso.rd2")}</p>
               </div>
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  {context?.t.translate("job.guiaPellegrini.rt3")}
+                  {context?.t.translate("job.congreso.rt3")}
                 </h3>
-                <p>{context?.t.translate("job.guiaPellegrini.rd3")}</p>
+                <p>{context?.t.translate("job.congreso.rd3")}</p>
               </div>
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  {context?.t.translate("job.guiaPellegrini.rt4")}
+                  {context?.t.translate("job.congreso.rt4")}
                 </h3>
-                <p>{context?.t.translate("job.guiaPellegrini.rd4")}</p>
+                <p>{context?.t.translate("job.congreso.rd4")}</p>
+              </div>
+              <div className="mb-4">
+                <h3 className="text-xl font-semibold mb-1">
+                  {context?.t.translate("job.congreso.rt5")}
+                </h3>
+                <p>{context?.t.translate("job.congreso.rd5")}</p>
               </div>
             </div>
           </div>
@@ -87,28 +95,20 @@ const GuiaPellegrini: React.FC = () => {
             <p>React</p>
           </div>
           <div className="flex flex-col justify-items-center items-center">
-            <img src="/imgs/icons/Express.png" width={40} alt="Express" />
-            <p>Express</p>
+            <img src="/imgs/icons/TypeScript.png" width={40} alt="TypeScript" />
+            <p>TypeScript</p>
           </div>
           <div className="flex flex-col justify-items-center items-center">
-            <img src="/imgs/icons/Node.js.png" width={40} alt="Node.js" />
-            <p>Node</p>
+            <img src="/imgs/icons/Supabase.png" width={40} alt="Supabase" />
+            <p>Supabase</p>
           </div>
           <div className="flex flex-col justify-items-center items-center">
-            <img src="/imgs/icons/MongoDB.png" width={40} alt="MongoDB" />
-            <p>MongoDB</p>
+            <img src="/imgs/icons/shadcn.png" width={40} alt="Shadcn" />
+            <p>Shadcn</p>
           </div>
           <div className="flex flex-col justify-items-center items-center">
-            <img src="/imgs/icons/Mongoose.js.png" width={40} alt="Mongoose" />
-            <p>Mongoose</p>
-          </div>
-          <div className="flex flex-col justify-items-center items-center">
-            <img
-              src="/imgs/icons/MaterialUI.png"
-              width={40}
-              alt="Material UI"
-            />
-            <p>Material UI</p>
+            <img src="/imgs/icons/TailwindCSS.png" width={40} alt="Tailwind" />
+            <p>Tailwind</p>
           </div>
         </div>
       </div>
@@ -116,4 +116,4 @@ const GuiaPellegrini: React.FC = () => {
   );
 };
 
-export default GuiaPellegrini;
+export default Congreso;

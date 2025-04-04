@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Back } from "../../components/Back/Back";
 import { Carousel3D } from "../../components/Carousel3D/Carousel3D";
+import { I18nContext } from "@/utils/i18nProvider";
 
 const NDCapacitaciones = () => {
+  const context = useContext(I18nContext);
   return (
     <div className="w-full flex justify-center items-center flex-col mt-10 text-white">
       <div className="w-[90vw]">
@@ -29,37 +32,25 @@ const NDCapacitaciones = () => {
         <div className="text-white-100">
           <div className="max-w-4xl mx-auto p-6 my-10">
             <h1 className="text-3xl font-bold text-center mb-6">
-              Desarrollador Web Freelance
+              {context?.t.translate("job.ndCapacitaciones.title")}
             </h1>
             <div className="mb-6">
               <h2 className="text-2xl font-semibold mb-2">
-                Responsabilidades y Logros:
+                {context?.t.translate("job.responsibilities")}
               </h2>
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  Coordinación con el Cliente y las Ideas:
+                  {context?.t.translate("job.ndCapacitaciones.rt1")}
                 </h3>
-                <p>
-                  Fui responsable de la comunicación con el cliente y la
-                  coordinación de las ideas para su sitio web de capacitación en
-                  primeros auxilios. Colaboramos en un concepto de diseño y el
-                  cliente proporcionó contenido y sus ideas. También sugerí
-                  mejoras en el diseño y en la funcionalidad de la web,
-                  enfocándome en la usabilidad y escalabilidad.
-                </p>
+                <p>{context?.t.translate("job.ndCapacitaciones.rd1")}</p>
               </div>
 
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-1">
-                  Desarrollo del Dashboard:
+                  {context?.t.translate("job.ndCapacitaciones.rt2")}
                 </h3>
-                <p>
-                  Desarrollé un dashboard que permitía al cliente modificar
-                  contenido y añadir cursos a su sitio web. La tecnología
-                  utilizada incluyó React, Express, Node.js y MongoDB. Usé
-                  Bootstrap y Sass para los estilos y el desarrollo frontend.
-                </p>
+                <p>{context?.t.translate("job.ndCapacitaciones.rd2")}</p>
               </div>
             </div>
           </div>
@@ -67,7 +58,9 @@ const NDCapacitaciones = () => {
       </div>
 
       <div className="flex flex-col items-center mb-10">
-        <h3 className="text-4xl my-10">Tecnologías utilizadas</h3>
+        <h3 className="text-4xl my-10">
+          {context?.t.translate("job.technologiesUsed")}
+        </h3>
         <div className="flex justify-center gap-6 flex-wrap">
           <div className="flex flex-col justify-items-center items-center">
             <img src="/imgs/icons/react.png" width={40} alt="React" />
