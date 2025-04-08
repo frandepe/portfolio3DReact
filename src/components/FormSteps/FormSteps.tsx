@@ -9,6 +9,7 @@ import {
   StepperTrigger,
 } from "../ui/stepper";
 import { ToastContainer, toast } from "react-toastify";
+import LoaderOne from "@/utils/Loading";
 
 const { VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY } = import.meta.env;
 
@@ -222,6 +223,35 @@ export default function FormSteps() {
     setLoading(false);
   };
 
+  if (submitted) {
+    return (
+      <div className="w-full md:w-[500px] h-[500px] mx-auto p-6 rounded-xl border-[0.5px] border-gray-500 flex flex-col justify-center items-center">
+        <h2 className="text-lg font-bold mb-4 text-center">
+          ¡Gracias por tu interés!
+        </h2>
+        <p className="text-gray-400 text-center">
+          Recibí tu solicitud y me pondré en contacto contigo a la brevedad para
+          conversar sobre tu proyecto.
+        </p>
+      </div>
+    );
+  }
+  if (loading) {
+    return (
+      <div className="w-full md:w-[500px] h-[500px] mx-auto p-6 rounded-xl border-[0.5px] border-gray-500 flex flex-col justify-center items-center">
+        <h2 className="text-lg font-bold mb-4 text-center flex items-end gap-1">
+          Enviando{" "}
+          <div className="mb-1.5">
+            <LoaderOne />
+          </div>
+        </h2>
+
+        <p className="text-gray-400 text-center">
+          Por favor, espera un momento.
+        </p>
+      </div>
+    );
+  }
   return (
     <motion.div
       className="w-full md:w-[500px] h-[500px] mx-auto p-6 rounded-xl border-[0.5px] border-gray-500 flex flex-col"
