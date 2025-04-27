@@ -17,9 +17,9 @@
 // import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
-import { HeroInnovative } from "@/components/HeroSection/HeroSection";
+// import { HeroInnovative } from "@/components/HeroSection/HeroSection";
 import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
-import Hero3D from "@/components/HeroSection/HeroSection2";
+// import Hero3D from "@/components/HeroSection/HeroSection2";
 
 // import { HyperText } from "@/components/ui/hyper-text";
 
