@@ -15,7 +15,12 @@
 // import Caballo from "../../public/caballo/Caballo";
 // import { BackgroundMouse } from "../components/BackgroundMouse/BackgroundMouse";
 // import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
+import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
+import { HeroInnovative } from "@/components/HeroSection/HeroSection";
+import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
+import Hero3D from "@/components/HeroSection/HeroSection2";
+
 // import { HyperText } from "@/components/ui/hyper-text";
 
 // function Rig() {
@@ -39,7 +44,7 @@ export const Home = () => {
   // const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <BackgroundMouse>
       {/* <iframe
         src="https://cdn.botpress.cloud/webchat/v2.4/shareable.html?configUrl=https://files.bpcontent.cloud/2025/04/27/17/20250427173358-I63ONLCC.json"
         style={{
@@ -53,8 +58,11 @@ export const Home = () => {
         className="text-4xl font-bold text-white mt-40"
         text="Bienvenido a mi web"
       /> */}
+      {/* <HeroInnovative /> */}
+
+      <SplineSceneBasic />
       <BotpressChat />
-    </div>
+    </BackgroundMouse>
     // <BackgroundMouse>
     //   {isLoading && <LoadingScreen />}
     //   <Canvas

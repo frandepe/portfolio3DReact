@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "./BotpressChat.css";
 
 function BotpressChat() {
   useEffect(() => {

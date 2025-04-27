@@ -1,20 +1,15 @@
-.bpWebchat {
+/* .bpWebchat {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
-  transform: translate(
-    -50%,
-    -50%
-  ) !important; /* Esto lo centra completamente */
-  z-index: 9999; /* Asegura que el chat quede encima de otros elementos */
+  transform: translate(-50%, -50%) !important;
+  z-index: 9999;
 }
 
 .bpFab {
   display: none;
 }
 
-/* bpReset bpContainer bpFont
- */
 .bpReset {
   width: 60vw !important;
   height: 400px !important;
@@ -28,4 +23,7 @@
   .bpReset {
     width: 90vw !important;
   }
+} */
+.bpComposerPoweredBy {
+  display: none !important;
 }
