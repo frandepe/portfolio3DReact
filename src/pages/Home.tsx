@@ -16,7 +16,7 @@
 // import { BackgroundMouse } from "../components/BackgroundMouse/BackgroundMouse";
 // import { LoadingScreen } from "../components/LoadingScreen/LoadingScreen";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
-import { HyperText } from "@/components/ui/hyper-text";
+// import { HyperText } from "@/components/ui/hyper-text";
 
 // function Rig() {
 //   const [vec] = useState(() => new THREE.Vector3());
@@ -49,10 +49,10 @@ export const Home = () => {
         }}
         title="Botpress Chat"
       /> */}
-      <HyperText
+      {/* <HyperText
         className="text-4xl font-bold text-white mt-40"
         text="Bienvenido a mi web"
-      />
+      /> */}
       <BotpressChat />
     </div>
     // <BackgroundMouse>
