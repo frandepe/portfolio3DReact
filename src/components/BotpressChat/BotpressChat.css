@@ -1,0 +1,31 @@
+.bpWebchat {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(
+    -50%,
+    -50%
+  ) !important; /* Esto lo centra completamente */
+  z-index: 9999; /* Asegura que el chat quede encima de otros elementos */
+}
+
+.bpFab {
+  display: none;
+}
+
+/* bpReset bpContainer bpFont
+ */
+.bpReset {
+  width: 60vw !important;
+  height: 400px !important;
+}
+
+.bpHeaderContentActionsIcons {
+  display: none !important;
+}
+
+@media only screen and (max-width: 680px) {
+  .bpReset {
+    width: 90vw !important;
+  }
+}
