@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useContext } from "react";
 import { cn } from "@/lib/utils";
 import { BsCircle } from "react-icons/bs";
+import Button from "../Button/Button";
+import { I18nContext } from "@/utils/i18nProvider";
 
 function FloatingElement({
   className,
@@ -52,7 +54,7 @@ function HeroInnovative({
   title1?: string;
   title2?: string;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const context = useContext(I18nContext);
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -102,7 +104,7 @@ function HeroInnovative({
             animate="visible"
             className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.1] border border-white/[0.2] mb-10 md:mb-14"
           >
-            <BsCircle className="h-2 w-2 fill-pink-500" />
+            <BsCircle className="h-2 w-2 fill-[var(--secondary)]" />
             <span className="text-sm text-white/80 tracking-wide">{badge}</span>
           </motion.div>
 
@@ -117,7 +119,7 @@ function HeroInnovative({
                 {title1}
               </span>
               <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-pink-600">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]">
                 {title2}
               </span>
             </h1>
@@ -130,8 +132,7 @@ function HeroInnovative({
             animate="visible"
           >
             <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
-              Unlock the potential of digital innovation with cutting-edge
-              designs and technologies. Let’s build the future, today.
+              {context?.t.translate("home.subtitle")}
             </p>
           </motion.div>
 
@@ -141,18 +142,11 @@ function HeroInnovative({
             initial="hidden"
             animate="visible"
           >
-            <button
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className={cn(
-                "px-6 py-3 text-white text-lg font-semibold rounded-full border border-white/20",
-                isHovered
-                  ? "bg-gradient-to-r from-cyan-400 to-pink-600"
-                  : "bg-transparent"
-              )}
-            >
-              Get Started
-            </button>
+            <Button
+              title={context?.t.translate("home.btn")}
+              variant="default"
+              href="/about"
+            />
           </motion.div>
         </div>
       </div>

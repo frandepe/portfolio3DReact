@@ -14,6 +14,14 @@ const en = {
     contact: "Contact",
     yourWeb: "I develop your web",
   },
+  home: {
+    badge: "Welcome",
+    title1: "Franco De Paulo",
+    title2: "Fullstack Web Development",
+    subtitle:
+      "With over 3 years of experience in business environments, I help companies improve their processes through the development of web and mobile solutions.",
+    btn: "About",
+  },
   about: {
     title: "Who am i?",
     description1:
