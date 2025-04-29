@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
 import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
 import { HeroInnovative } from "@/components/HeroSection/HeroSection";
 import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
-import { I18nContext } from "@/utils/i18nProvider";
 import { LoadingScreen } from "@/components/LoadingScreen/LoadingScreen";
+import { I18nContext } from "@/utils/i18nProvider";
+import { useContext, useEffect, useState } from "react";
 
 export const Home = () => {
   const [isLowPerformance, setIsLowPerformance] = useState(false);
@@ -23,15 +23,25 @@ export const Home = () => {
       totalElapsed += delta;
       lastTime = time;
 
-      if (totalElapsed < 3000) {
+      if (totalElapsed < 5000) {
         rafId = requestAnimationFrame(measurePerformance);
       } else {
-        const avgFps = frames / (totalElapsed / 1000);
-        console.log("Average FPS:", avgFps);
+        const fps = frames / (totalElapsed / 1000);
+        console.log("Average FPS test:", fps);
 
-        if (avgFps < 30) {
+        // Verificar si el dispositivo tiene menos de 4GB de RAM y menos de 4 núcleos
+        const lowMemory =
+          (navigator as any).deviceMemory &&
+          (navigator as any).deviceMemory < 4; // Menos de 4GB de RAM
+        const lowCPU =
+          navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4; // Menos de 4 núcleos
+
+        if (fps < 20 || lowMemory || lowCPU) {
           setIsLowPerformance(true);
+        } else {
+          setIsLowPerformance(false); // Forzamos false si tiene un buen rendimiento
         }
+
         setIsCheckingPerformance(false);
       }
     };
@@ -44,6 +54,7 @@ export const Home = () => {
   if (isCheckingPerformance) {
     return <LoadingScreen />;
   }
+  console.log("isLowPerformance", isLowPerformance);
 
   if (isLowPerformance) {
     return (
