@@ -2,59 +2,48 @@ import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
 import { HeroInnovative } from "@/components/HeroSection/HeroSection";
 import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
-import { LoadingScreen } from "@/components/LoadingScreen/LoadingScreen";
 import { I18nContext } from "@/utils/i18nProvider";
 import { useContext, useEffect, useState } from "react";
 
 export const Home = () => {
+  // const [isLoading, setIsLoading] = useState(true);
   const [isLowPerformance, setIsLowPerformance] = useState(false);
-  const [isCheckingPerformance, setIsCheckingPerformance] = useState(true);
   const context = useContext(I18nContext);
 
   useEffect(() => {
     let lastTime = performance.now();
-    let frames = 0;
-    let totalElapsed = 0;
-    let rafId: number;
 
-    const measurePerformance = (time: number) => {
+    let fps;
+    let frames = 0;
+    let timeCounter = 0;
+
+    const checkPerformance = (time: number) => {
       frames++;
-      const delta = time - lastTime;
-      totalElapsed += delta;
+      timeCounter += time - lastTime;
       lastTime = time;
 
-      if (totalElapsed < 5000) {
-        rafId = requestAnimationFrame(measurePerformance);
-      } else {
-        const fps = frames / (totalElapsed / 1000);
-        console.log("Average FPS test:", fps);
+      if (timeCounter >= 1000) {
+        // cada 1 segundo
+        fps = frames;
+        frames = 0;
+        timeCounter = 0;
+        console.log("fps", fps);
 
-        // Verificar si el dispositivo tiene menos de 4GB de RAM y menos de 4 núcleos
-        const lowMemory =
-          (navigator as any).deviceMemory &&
-          (navigator as any).deviceMemory < 4; // Menos de 4GB de RAM
-        const lowCPU =
-          navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4; // Menos de 4 núcleos
-
-        if (fps < 20 || lowMemory || lowCPU) {
+        if (fps < 30) {
+          // Si el usuario tiene menos de 20fps
           setIsLowPerformance(true);
-        } else {
-          setIsLowPerformance(false); // Forzamos false si tiene un buen rendimiento
         }
+      }
 
-        setIsCheckingPerformance(false);
+      if (!isLowPerformance) {
+        requestAnimationFrame(checkPerformance);
       }
     };
 
-    rafId = requestAnimationFrame(measurePerformance);
+    const id = requestAnimationFrame(checkPerformance);
 
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
-  if (isCheckingPerformance) {
-    return <LoadingScreen />;
-  }
-  console.log("isLowPerformance", isLowPerformance);
+    return () => cancelAnimationFrame(id);
+  }, [isLowPerformance]);
 
   if (isLowPerformance) {
     return (
@@ -68,7 +57,6 @@ export const Home = () => {
       </BackgroundMouse>
     );
   }
-
   return (
     <BackgroundMouse>
       <SplineSceneBasic />
@@ -76,7 +64,6 @@ export const Home = () => {
     </BackgroundMouse>
   );
 };
-
 // <BackgroundMouse>
 //   {isLoading && <LoadingScreen />}
 //   <Canvas
