@@ -1,65 +1,64 @@
+import { useContext, useEffect, useState } from "react";
 import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
 import { HeroInnovative } from "@/components/HeroSection/HeroSection";
 import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
+
 import { I18nContext } from "@/utils/i18nProvider";
-import { useContext, useEffect, useState } from "react";
+import { LoadingScreen } from "@/components/LoadingScreen/LoadingScreen";
 
 export const Home = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-  const [isLowPerformance, setIsLowPerformance] = useState(false);
+  const [performanceResult, setPerformanceResult] = useState<
+    null | "low" | "high"
+  >(null);
   const context = useContext(I18nContext);
 
   useEffect(() => {
     let lastTime = performance.now();
-
-    let fps;
     let frames = 0;
-    let timeCounter = 0;
+    let totalElapsed = 0;
+    let rafId: number;
 
-    const checkPerformance = (time: number) => {
+    const measurePerformance = (time: number) => {
       frames++;
-      timeCounter += time - lastTime;
+      const delta = time - lastTime;
+      totalElapsed += delta;
       lastTime = time;
 
-      if (timeCounter >= 1000) {
-        // cada 1 segundo
-        fps = frames;
-        frames = 0;
-        timeCounter = 0;
-        console.log("fps", fps);
+      if (totalElapsed < 5000) {
+        rafId = requestAnimationFrame(measurePerformance);
+      } else {
+        const fps = frames / (totalElapsed / 1000);
+        console.log("Average FPS:", fps);
 
-        if (fps < 20) {
-          // Si el usuario tiene menos de 20fps
-          setIsLowPerformance(true);
+        if (fps < 30) {
+          setPerformanceResult("low");
+        } else {
+          setPerformanceResult("high");
         }
-      }
-
-      if (!isLowPerformance) {
-        requestAnimationFrame(checkPerformance);
       }
     };
 
-    const id = requestAnimationFrame(checkPerformance);
+    rafId = requestAnimationFrame(measurePerformance);
 
-    return () => cancelAnimationFrame(id);
-  }, [isLowPerformance]);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
-  if (isLowPerformance) {
-    return (
-      <BackgroundMouse>
-        <SplineSceneBasic />
-        <BotpressChat />
-      </BackgroundMouse>
-    );
+  if (performanceResult === null) {
+    return <LoadingScreen />;
   }
+
   return (
     <BackgroundMouse>
-      <HeroInnovative
-        badge={context?.t.translate("home.badge")}
-        title1={context?.t.translate("home.title1")}
-        title2={context?.t.translate("home.title2")}
-      />
+      {performanceResult === "low" ? (
+        <HeroInnovative
+          badge={context?.t.translate("home.badge")}
+          title1={context?.t.translate("home.title1")}
+          title2={context?.t.translate("home.title2")}
+        />
+      ) : (
+        <SplineSceneBasic />
+      )}
       <BotpressChat />
     </BackgroundMouse>
   );
