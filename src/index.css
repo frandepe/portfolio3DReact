@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @property --pos-x {
+    syntax: "<percentage>";
+    initial-value: 11.14%;
+    inherits: false;
+  }
+
+  @property --pos-y {
+    syntax: "<percentage>";
+    initial-value: 140%;
+    inherits: false;
+  }
+
+  @property --spread-x {
+    syntax: "<percentage>";
+    initial-value: 150%;
+    inherits: false;
+  }
+
+  @property --spread-y {
+    syntax: "<percentage>";
+    initial-value: 180.06%;
+    inherits: false;
+  }
+
+  @property --color-1 {
+    syntax: "<color>";
+    initial-value: #000;
+    inherits: false;
+  }
+
+  @property --color-2 {
+    syntax: "<color>";
+    initial-value: #08012c;
+    inherits: false;
+  }
+
+  @property --color-3 {
+    syntax: "<color>";
+    initial-value: #4e1e40;
+    inherits: false;
+  }
+
+  @property --color-4 {
+    syntax: "<color>";
+    initial-value: #70464e;
+    inherits: false;
+  }
+
+  @property --color-5 {
+    syntax: "<color>";
+    initial-value: #88394c;
+    inherits: false;
+  }
+
+  @property --border-angle {
+    syntax: "<angle>";
+    initial-value: 20deg;
+    inherits: true;
+  }
+
+  @property --border-color-1 {
+    syntax: "<color>";
+    initial-value: hsla(340, 75%, 60%, 0.2);
+    inherits: true;
+  }
+
+  @property --border-color-2 {
+    syntax: "<color>";
+    initial-value: hsla(340, 75%, 40%, 0.75);
+    inherits: true;
+  }
+
+  @property --stop-1 {
+    syntax: "<percentage>";
+    initial-value: 37.35%;
+    inherits: false;
+  }
+
+  @property --stop-2 {
+    syntax: "<percentage>";
+    initial-value: 61.36%;
+    inherits: false;
+  }
+
+  @property --stop-3 {
+    syntax: "<percentage>";
+    initial-value: 78.42%;
+    inherits: false;
+  }
+
+  @property --stop-4 {
+    syntax: "<percentage>";
+    initial-value: 89.52%;
+    inherits: false;
+  }
+
+  @property --stop-5 {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: false;
+  }
+}
+
+:root {
+  --bgColor: #0f0f0f;
+  --greyColor: rgb(94, 94, 94);
+  --primary: #637cce;
+  --primaryHover: #6e86d6;
+  --secondary: #fd8d8d;
+  --secondaryHover: #b12424;
+  --tertiary: #fab511;
+  --tertiaryHover: #cc9619;
+  --fourth: #263a7a;
+  --fourthHover: #1d2d61;
+}
+
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+@layer components {
+  .database {
+    offset-anchor: 10px 0px;
+    animation: database-animation-path;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    animation-duration: 4s;
+    animation-delay: 1s;
+  }
+
+  .db-light-1 {
+    offset-path: path("M 31 10 v 15 q 0 5 5 5 h 59 q 5 0 5 5 v 25");
+  }
+
+  .db-light-2 {
+    offset-path: path("M 77 10 v 10 q 0 5 5 5 h 13 q 5 0 5 5 v 25");
+  }
+
+  .db-light-3 {
+    offset-path: path("M 124 10 v 10 q 0 5 -5 5 h -14 q -5 0 -5 5 v 25");
+  }
+
+  .db-light-4 {
+    offset-path: path("M 170 10 v 15 q 0 5 -5 5 h -60 q -5 0 -5 5 v 25");
+  }
+
+  @keyframes database-animation-path {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  .gradient-button {
+    @apply relative appearance-none cursor-pointer;
+    background: radial-gradient(
+      var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+      var(--bgColor) var(--stop-1),
+      var(--fourth) var(--stop-2),
+      var(--secondary) var(--stop-3),
+      var(--tertiary) var(--stop-4),
+      var(--primary) var(--stop-5)
+    );
+    transition: --pos-x 0.5s, --pos-y 0.5s, --spread-x 0.5s, --spread-y 0.5s,
+      --color-1 0.5s, --color-2 0.5s, --color-3 0.5s, --color-4 0.5s,
+      --color-5 0.5s, --border-angle 0.5s, --border-color-1 0.5s,
+      --border-color-2 0.5s, --stop-1 0.5s, --stop-2 0.5s, --stop-3 0.5s,
+      --stop-4 0.5s, --stop-5 0.5s;
+  }
+
+  .gradient-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      var(--border-angle),
+      var(--primary) 0%,
+      var(--secondary) 50%,
+      var(--tertiary) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .gradient-button:hover {
+    --pos-x: 0%;
+    --pos-y: 91.51%;
+    --spread-x: 120.24%;
+    --spread-y: 103.18%;
+    --color-1: var(--bgColor);
+    --color-2: var(--fourth);
+    --color-3: var(--secondary);
+    --color-4: var(--tertiary);
+    --color-5: var(--primary);
+    --border-angle: 190deg;
+    --border-color-1: var(--primary);
+    --border-color-2: var(--secondary);
+    --stop-1: 0%;
+    --stop-2: 8.8%;
+    --stop-3: 21.44%;
+    --stop-4: 71.34%;
+    --stop-5: 85.76%;
+  }
+
+  .gradient-button-variant {
+    background: radial-gradient(
+      var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+      var(--primary) var(--stop-1),
+      var(--primaryHover) var(--stop-2),
+      var(--fourth) var(--stop-3),
+      var(--fourthHover) var(--stop-4),
+      var(--bgColor) var(--stop-5)
+    );
+  }
+
+  .gradient-button-variant:hover {
+    --pos-x: 0%;
+    --pos-y: 95.51%;
+    --spread-x: 110.24%;
+    --spread-y: 110.2%;
+    --color-1: var(--primary);
+    --color-2: var(--primaryHover);
+    --color-3: var(--fourth);
+    --color-4: var(--fourthHover);
+    --color-5: var(--bgColor);
+    --stop-1: 0%;
+    --stop-2: 10%;
+    --stop-3: 35.44%;
+    --stop-4: 71.34%;
+    --stop-5: 90.76%;
+    --border-angle: 210deg;
+    --border-color-1: var(--primary);
+    --border-color-2: var(--fourth);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.canvasCaballo {
+  width: 100% !important;
+  height: 100vh !important;
+  /* touch-action: auto; */
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background: #13151a;
+  /* background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%); */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,60 @@
+.container {
+  width: max-content;
+}
+
+.box {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  background: #13151a;
+  margin: 20px 40px;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: transparent;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 100px 0 40px #13151a;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 6px solid transparent;
+}
+
+.box .circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: var(
+    --primary
+  ); /* Cambiar a un color en Tailwind o pasar como prop */
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.box .circle img,
+.box img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 400px;
+}

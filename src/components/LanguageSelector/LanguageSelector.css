@@ -1,0 +1,34 @@
+.custom-select-container {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  appearance: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: url("../../assets/ar.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px;
+  padding-left: 40px;
+}
+
+.custom-select option {
+  padding: 10px 20px;
+}
+
+/* Cambiar bandera según la selección */
+.custom-select[data-language="es"] {
+  background-image: url("../../assets/ar.svg");
+}
+
+.custom-select[data-language="en"] {
+  background-image: url("../../assets/us.svg");
+}

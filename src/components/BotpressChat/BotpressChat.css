@@ -1,0 +1,29 @@
+/* .bpWebchat {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 9999;
+}
+
+.bpFab {
+  display: none;
+}
+
+.bpReset {
+  width: 60vw !important;
+  height: 400px !important;
+}
+
+.bpHeaderContentActionsIcons {
+  display: none !important;
+}
+
+@media only screen and (max-width: 680px) {
+  .bpReset {
+    width: 90vw !important;
+  }
+} */
+.bpComposerPoweredBy {
+  display: none !important;
+}
