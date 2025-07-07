@@ -1,0 +1,88 @@
+.menu {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  bottom: 0;
+  width: 400px;
+  background: var(--primary);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.menu-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: var(--primary);
+  transform-origin: right center;
+  transform: skewX(10deg);
+}
+
+.menu-items {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.menu-item {
+  display: block;
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transform: translateX(-150px);
+  transition: color 0.3s;
+}
+
+.menu-item:hover {
+  color: #7d87ae;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+}
+
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 250px;
+  z-index: 49;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+#burger .top,
+#burger .mid,
+#burger .bot {
+  transition: all 0.3s ease;
+}
