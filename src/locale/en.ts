@@ -152,6 +152,20 @@ const en = {
       rt2: "Dashboard Development:",
       rd2: "I developed a dashboard that allowed the client to modify content and add courses to their website. The technology used included React, Express, Node.js, and MongoDB. I used Bootstrap and Sass for styling and frontend development.",
     },
+    argReanima: {
+      dates: "(June 2025 - July 2025)",
+      title: "Web Developer for Argentina Reanima",
+      rt1: "Web Platform Development:",
+      rd1: "I led the development of the website for Argentina Reanima, using Next.js to ensure speed, efficiency, and an optimized user experience.",
+      rt2: "Responsive Visual Design:",
+      rd2: "I applied Tailwind CSS along with Shadcn components to achieve a clean, modern, and fully responsive interface across all screen sizes.",
+      rt3: "Registration Management with Supabase:",
+      rd3: "I set up a Supabase database to implement a registration system, enabling a smooth sign-up process and secure data handling.",
+      rt4: "Content Team Coordination:",
+      rd4: "I closely collaborated with the person responsible for text and media content, ensuring accurate and consistent integration throughout the site.",
+      rt5: "Client-Oriented Development:",
+      rd5: "I adapted both the structure and functionality of the website according to the organization’s specifications, staying aligned with the event's identity and vision.",
+    }
   },
 };
 
