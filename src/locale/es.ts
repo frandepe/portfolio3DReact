@@ -154,6 +154,20 @@ const es = {
       rt2: "Desarrollo del Dashboard:",
       rd2: "Desarrollé un dashboard que permitía al cliente modificar contenido y añadir cursos a su sitio web. La tecnología utilizada incluyó React, Express, Node.js y MongoDB. Usé Bootstrap y Sass para los estilos y el desarrollo frontend.",
     },
+    argReanima: {
+      dates: "(Junio 2025 - Julio 2025)",
+      title: "Desarrollador Web para Argentina Reanima",
+      rt1: "Creación de Plataforma Web:",
+      rd1: "Lideré el desarrollo del sitio para Argentina Reanima en Argentina, empleando Next Js para garantizar velocidad, eficiencia y una experiencia de usuario optimizada.",
+      rt2: "Diseño Visual Adaptativo:",
+      rd2: "Apliqué Tailwind CSS junto con componentes de Shadcn para lograr una estética moderna, limpia y completamente adaptable a todo tipo de pantallas.",
+      rt3: "Gestión de Registros con Supabase:",
+      rd3: "Configuré una base de datos en Supabase para implementar un sistema de inscripción, permitiendo un proceso de registro ágil y un manejo seguro de los datos.",
+      rt4: "Sincronización con el Área de Contenidos:",
+      rd4: "Colaboré estrechamente con la persona encargada del contenido textual y visual, asegurando una integración precisa y coherente en cada sección de la web.",
+      rt5: "Desarrollo Basado en Requisitos del Cliente:",
+      rd5: "Adapté tanto la estructura como las funcionalidades del sitio según los lineamientos y objetivos definidos por la organización, respetando la identidad y visión del evento.",
+    }
   },
 };
 

@@ -20,6 +20,7 @@ const routes = [
   "/jobs/ndcapacitaciones",
   "/jobs/pilsen-digital",
   "/jobs/congreso",
+  "/jobs/argentina-reanima",
   "/practices/mil-opciones",
 ];
 
