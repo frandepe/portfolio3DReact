@@ -14,6 +14,10 @@ import MilOpciones from "./pages/Practices/MilOpciones";
 import WebForClient from "./pages/WebForClient";
 import Congreso from "./pages/Jobs/Congreso";
 import ArgentinaReanima from "./pages/Jobs/ArgentinaReanima";
+import { useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaLinkedin } from "react-icons/fa";
 
 function PageWrapper({ children }: any) {
   return (
@@ -29,51 +33,37 @@ function PageWrapper({ children }: any) {
 }
 
 function App() {
+  useEffect(() => {
+    const referrer = document.referrer;
+    const params = new URLSearchParams(window.location.search);
+
+    const fromLinkedin =
+      (referrer && referrer.includes("linkedin.com")) ||
+      params.get("source") === "linkedin";
+
+    if (fromLinkedin) {
+      toast.success("¡Gracias por visitar mi portafolio desde LinkedIn!", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        icon: <FaLinkedin size={22} color="#0A66C2" />,
+        });
+      }
+    }, []);
+
   return (
     <BrowserRouter>
       <Header />
       <AnimatePresence mode="sync">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <PageWrapper>
-                <Home />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <PageWrapper>
-                <Contact />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <PageWrapper>
-                <AboutMe />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/portfolio"
-            element={
-              <PageWrapper>
-                <Portfolio />
-              </PageWrapper>
-            }
-          />
-          <Route
-            path="/tu-web"
-            element={
-              <PageWrapper>
-                <WebForClient />
-              </PageWrapper>
-            }
-          />
+          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+          <Route path="/about" element={<PageWrapper><AboutMe /></PageWrapper>} />
+          <Route path="/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
+          <Route path="/tu-web" element={<PageWrapper><WebForClient /></PageWrapper>} />
           <Route path="/jobs/guia-pellegrini" element={<GuiaPellegrini />} />
           <Route path="/jobs/guruia" element={<GuruiaProject />} />
           <Route path="/jobs/natura" element={<NaturaJob />} />
@@ -84,6 +74,7 @@ function App() {
           <Route path="/practices/mil-opciones" element={<MilOpciones />} />
         </Routes>
       </AnimatePresence>
+      <ToastContainer />
     </BrowserRouter>
   );
 }
