@@ -25,9 +25,9 @@ const es = {
   about: {
     title: "¿Quién soy?",
     description1:
-      "Desarrollador Frontend con experiencia en backend y bases de datos. Apasionado por la evolución constante y la aplicación de nuevas tecnologías. Me formé en desarrollo web en el bootcamp de NUCBA y he continuado perfeccionando mis habilidades a lo largo de los años. Destaco por mi proactividad, disciplina y capacidad para asumir grandes responsabilidades.",
+      "Desarrollador Frontend con experiencia en backend y bases de datos. Apasionado por la evolución constante y la aplicación de nuevas tecnologías. Me formé en desarrollo web en el bootcamp de NUCBA y he continuado perfeccionando mis habilidades a lo largo de los años.",
     description2:
-      "Desde 2022, he trabajado con React.js y WordPress en entornos empresariales. Actualmente, soy Frontend Developer en Natura, donde implemento soluciones eficientes y escalables. Además, cuento con un portafolio de varios proyectos propios y he participado en equipos de desarrollo en No-Country y Alkemy, aplicando Git, metodologías ágiles y trabajo colaborativo.",
+      "Desde 2022, he trabajado con el ecosistema de JavaScript en entornos empresariales. Actualmente, soy Frontend Developer en Natura, donde implemento soluciones eficientes y escalables. Además, cuento con un portafolio de varios proyectos propios y he participado en equipos de desarrollo en No-Country y Alkemy, aplicando Git, metodologías ágiles y trabajo colaborativo.",
     country: "País",
     city: "Ciudad",
     secretTalent: "Talento Secreto",
