@@ -35,7 +35,7 @@ export const ContactForm = () => {
     setLoading(true);
     emailjs
       .sendForm(
-        "service_yaat4lr",
+        "service_05mdgai",
         "template_af1rz1p",
         form.current as any,
         "1pJRcoYPZ5B_8OK6a"
