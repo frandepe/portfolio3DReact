@@ -1,7 +1,6 @@
 import { BackgroundMouse } from "@/components/BackgroundMouse/BackgroundMouse";
 import BotpressChat from "@/components/BotpressChat/BotpressChat";
 import { HeroInnovative } from "@/components/HeroSection/HeroSection";
-import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
 import { I18nContext } from "@/utils/i18nProvider";
 import { useContext } from "react";
 

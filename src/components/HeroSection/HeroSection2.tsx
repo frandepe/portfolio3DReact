@@ -1,5 +1,3 @@
-"use client";
-
 import { lazy, useState } from "react";
 import { Suspense } from "react";
 import { LoadingScreen } from "../LoadingScreen/LoadingScreen";
