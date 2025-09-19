@@ -3,62 +3,56 @@ import BotpressChat from "@/components/BotpressChat/BotpressChat";
 import { HeroInnovative } from "@/components/HeroSection/HeroSection";
 import SplineSceneBasic from "@/components/HeroSection/HeroSection2";
 import { I18nContext } from "@/utils/i18nProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 export const Home = () => {
-  const [isLowPerformance, setIsLowPerformance] = useState(false);
+  // const [isLowPerformance, setIsLowPerformance] = useState(false);
   const context = useContext(I18nContext);
 
-  useEffect(() => {
-    let lastTime = performance.now();
+  // useEffect(() => {
+  //   let lastTime = performance.now();
 
-    let fps;
-    let frames = 0;
-    let timeCounter = 0;
+  //   let fps;
+  //   let frames = 0;
+  //   let timeCounter = 0;
 
-    const checkPerformance = (time: number) => {
-      frames++;
-      timeCounter += time - lastTime;
-      lastTime = time;
+  //   const checkPerformance = (time: number) => {
+  //     frames++;
+  //     timeCounter += time - lastTime;
+  //     lastTime = time;
 
-      if (timeCounter >= 1000) {
-        // cada 1 segundo
-        fps = frames;
-        frames = 0;
-        timeCounter = 0;
-        console.log("fps", fps);
+  //     if (timeCounter >= 1000) {
+  //       // cada 1 segundo
+  //       fps = frames;
+  //       frames = 0;
+  //       timeCounter = 0;
+  //       console.log("fps", fps);
 
-        if (fps < 30) {
-          // Si el usuario tiene menos de 20fps
-          setIsLowPerformance(true);
-        }
-      }
+  //       if (fps < 30) {
+  //         // Si el usuario tiene menos de 20fps
+  //         setIsLowPerformance(true);
+  //       }
+  //     }
 
-      if (!isLowPerformance) {
-        requestAnimationFrame(checkPerformance);
-      }
-    };
+  //     if (!isLowPerformance) {
+  //       requestAnimationFrame(checkPerformance);
+  //     }
+  //   };
 
-    const id = requestAnimationFrame(checkPerformance);
+  //   const id = requestAnimationFrame(checkPerformance);
 
-    return () => cancelAnimationFrame(id);
-  }, [isLowPerformance]);
+  //   return () => cancelAnimationFrame(id);
+  // }, [isLowPerformance]);
 
-  if (isLowPerformance) {
-    return (
-      <BackgroundMouse>
-        <HeroInnovative
-          badge={context?.t.translate("home.badge")}
-          title1={context?.t.translate("home.title1")}
-          title2={context?.t.translate("home.title2")}
-        />
-        <BotpressChat />
-      </BackgroundMouse>
-    );
-  }
   return (
     <BackgroundMouse>
-      <SplineSceneBasic />
+      {/* <SplineSceneBasic />
+      <BotpressChat /> */}
+      <HeroInnovative
+        badge={context?.t.translate("home.badge")}
+        title1={context?.t.translate("home.title1")}
+        title2={context?.t.translate("home.title2")}
+      />
       <BotpressChat />
     </BackgroundMouse>
   );
