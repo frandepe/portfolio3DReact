@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaLinkedin } from "react-icons/fa";
+import AIAgro from "./pages/Jobs/AIAgro";
 
 function PageWrapper({ children }: any) {
   return (
@@ -50,27 +51,66 @@ function App() {
         pauseOnHover: true,
         draggable: true,
         icon: <FaLinkedin size={22} color="#0A66C2" />,
-        });
-      }
-    }, []);
+      });
+    }
+  }, []);
 
   return (
     <BrowserRouter>
       <Header />
       <AnimatePresence mode="sync">
         <Routes>
-          <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-          <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-          <Route path="/about" element={<PageWrapper><AboutMe /></PageWrapper>} />
-          <Route path="/portfolio" element={<PageWrapper><Portfolio /></PageWrapper>} />
-          <Route path="/tu-web" element={<PageWrapper><WebForClient /></PageWrapper>} />
+          <Route
+            path="/"
+            element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <PageWrapper>
+                <Contact />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <PageWrapper>
+                <AboutMe />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/portfolio"
+            element={
+              <PageWrapper>
+                <Portfolio />
+              </PageWrapper>
+            }
+          />
+          <Route
+            path="/tu-web"
+            element={
+              <PageWrapper>
+                <WebForClient />
+              </PageWrapper>
+            }
+          />
           <Route path="/jobs/guia-pellegrini" element={<GuiaPellegrini />} />
           <Route path="/jobs/guruia" element={<GuruiaProject />} />
           <Route path="/jobs/natura" element={<NaturaJob />} />
-          <Route path="/jobs/argentina-reanima" element={<ArgentinaReanima />} />
+          <Route
+            path="/jobs/argentina-reanima"
+            element={<ArgentinaReanima />}
+          />
           <Route path="/jobs/ndcapacitaciones" element={<NDCapacitaciones />} />
           <Route path="/jobs/pilsen-digital" element={<PilsenDigital />} />
           <Route path="/jobs/congreso" element={<Congreso />} />
+          <Route path="/jobs/ai-agro" element={<AIAgro />} />
           <Route path="/practices/mil-opciones" element={<MilOpciones />} />
         </Routes>
       </AnimatePresence>

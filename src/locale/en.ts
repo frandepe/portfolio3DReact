@@ -165,7 +165,21 @@ const en = {
       rd4: "I closely collaborated with the person responsible for text and media content, ensuring accurate and consistent integration throughout the site.",
       rt5: "Client-Oriented Development:",
       rd5: "I adapted both the structure and functionality of the website according to the organization’s specifications, staying aligned with the event's identity and vision.",
-    }
+    },
+    agro: {
+      dates: "(August 2025 - September 2025)",
+      title: "Web Developer at IAgro",
+      rt1: "Training computer vision models using YOLO and CVAT:",
+      rd1: "The platform allows users to upload drone footage of cattle, captured from a top-down view at approximately 10 meters of altitude. The system then automatically processes the video using a YOLO model, previously annotated in CVAT to ensure accurate detection. Each cow in the video is identified and assigned an estimated weight, providing a detailed and automated analysis of the herd. This computer vision integration streamlines livestock monitoring and control, reducing both time and human error compared to traditional manual methods.",
+      rt2: "Adaptive Visual Design:",
+      rd2: "Applied Tailwind CSS along with Shadcn components to achieve a modern, clean, and fully responsive design for all screen types.",
+      rt3: "Record Management with Supabase:",
+      rd3: "Configured a database in Supabase to implement a registration system, enabling a smooth signup process and secure data handling.",
+      rt4: "Synchronization with the Content Team:",
+      rd4: "Collaborated closely with the person in charge of textual and visual content, ensuring precise and consistent integration across each section of the website.",
+      rt5: "Client-Driven Development:",
+      rd5: "Adapted both the structure and functionalities of the site according to the guidelines and objectives defined by the organization, while respecting the identity and vision of the event.",
+    },
   },
 };
 
