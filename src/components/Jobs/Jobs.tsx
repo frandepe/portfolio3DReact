@@ -86,6 +86,9 @@ export const Jobs = () => {
             <ul className="leading-9">
               {/* <ul className="leading-9 max-h-52 overflow-x-hidden overflow-y-scroll custom-scrollbar"> */}
               <li>
+                <a href="/jobs/ai-agro">IAgro</a>
+              </li>
+              <li>
                 <a href="/jobs/congreso">Congreso Nacional RCP</a>
               </li>
               <li>

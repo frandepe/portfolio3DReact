@@ -167,7 +167,21 @@ const es = {
       rd4: "Colaboré estrechamente con la persona encargada del contenido textual y visual, asegurando una integración precisa y coherente en cada sección de la web.",
       rt5: "Desarrollo Basado en Requisitos del Cliente:",
       rd5: "Adapté tanto la estructura como las funcionalidades del sitio según los lineamientos y objetivos definidos por la organización, respetando la identidad y visión del evento.",
-    }
+    },
+    agro: {
+      dates: "(Agosto 2025 - Septiembre 2025)",
+      title: "Desarrollador Web de IAgro",
+      rt1: "Entrenamiento de modelos de visión por computadora utilizando YOLO y CVAT:",
+      rd1: "La web permite a los usuarios subir videos de ganado filmados con un dron desde una vista cenital a aproximadamente 10 metros de altura. A partir de allí, el sistema procesa automáticamente el video utilizando un modelo entrenado con YOLO, previamente anotado en CVAT para lograr una detección precisa. El modelo identifica cada vaca presente en la grabación y, además, le asigna un pesaje estimado de forma individual, ofreciendo un análisis detallado y automatizado del rebaño. Esta integración de visión por computadora optimiza el proceso de control y seguimiento del ganado, reduciendo tiempos y errores en comparación con métodos manuales.",
+      rt2: "Diseño Visual Adaptativo:",
+      rd2: "Apliqué Tailwind CSS junto con componentes de Shadcn para lograr una estética moderna, limpia y completamente adaptable a todo tipo de pantallas.",
+      rt3: "Gestión de Registros con Supabase:",
+      rd3: "Configuré una base de datos en Supabase para implementar un sistema de inscripción, permitiendo un proceso de registro ágil y un manejo seguro de los datos.",
+      rt4: "Sincronización con el Área de Contenidos:",
+      rd4: "Colaboré estrechamente con la persona encargada del contenido textual y visual, asegurando una integración precisa y coherente en cada sección de la web.",
+      rt5: "Desarrollo Basado en Requisitos del Cliente:",
+      rd5: "Adapté tanto la estructura como las funcionalidades del sitio según los lineamientos y objetivos definidos por la organización, respetando la identidad y visión del evento.",
+    },
   },
 };
 
