@@ -10,8 +10,6 @@ import { VideoModalDemo } from "@/components/VideoYT/VideoModal";
 const AboutMe = () => {
   const context = useContext(I18nContext);
 
-  fetch("https://example.api.com?token=mitoken123");
-
   const desktop = "(max-width: 600px)";
   const isDesktop = useMediaQuery(desktop);
   return (
@@ -63,7 +61,7 @@ const AboutMe = () => {
               variant="variant"
               download="CV-Dev Franco De Paulo"
               title={context?.t.translate("about.btnDownloadCV")}
-              href="/CV Franco De Paulo 2025.pdf"
+              href="/CV Generico.pdf"
             />
             {/* <Button
                 variant="default"
