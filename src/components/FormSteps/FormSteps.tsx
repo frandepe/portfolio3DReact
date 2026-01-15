@@ -217,7 +217,7 @@ export default function FormSteps() {
       setSubmitted(true); // Deshabilita el botón tras el envío exitoso
     } else {
       toast.error(
-        "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez."
+        "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez, o escribime a frandepaulo23@gmail.com"
       );
     }
     setLoading(false);

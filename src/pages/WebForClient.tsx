@@ -12,38 +12,11 @@ import StarsCanvas from "@/components/StarsBackground/StarBackground";
 import { TextWithImageMotion } from "@/components/TextWithImageMotion/TextWithImageMotion";
 import AnimatedWordCycle from "@/components/ui/animated-text-cycle";
 import { Globe } from "@/components/ui/globe";
-import { createClient } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const WebForClient = () => {
   const formularioRef = useRef<HTMLDivElement | null>(null);
-  const [filas, setFilas] = useState<number>(0)
-
-  const { VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY } = import.meta.env;
-
-  const supabase = createClient(
-    VITE_SUPABASE_URL as string,
-    VITE_SUPABASE_ANON_KEY as string
-  );
-
-  const getListForm =  async () => {
-    const { count, error } = await supabase
-      .from("WebClientSteps")
-      .select("*", { count: "exact", head: true });
-    
-    if (error) {
-      console.error("Error al contar filas:", error.message);
-    } else if (typeof count === "number") {
-      console.log("Cantidad de filas:", count);
-      setFilas(count);
-    }
-  }
-
-  useEffect(() => {
-    getListForm()
-  }, [])
-  
 
   const handleScroll = () => {
     if (formularioRef.current) {
@@ -190,12 +163,6 @@ const WebForClient = () => {
               detalles clave para que pueda entender tus necesidades y brindarte
               un presupuesto acorde a tu proyecto.
             </h4>
-          <p className="mt-4 text-sm text-muted-foreground flex items-center gap-2">
-            <span className="w-7 h-7 flex items-center justify-center bg-[var(--primary)] text-white font-semibold rounded-full shadow-sm text-base border border-black]">
-              {filas}
-            </span>
-            clientes confiaron para presupuestar su web.
-          </p>
           </div>
           <FormSteps />
         </div>
