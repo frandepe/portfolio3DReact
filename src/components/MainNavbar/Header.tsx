@@ -184,7 +184,7 @@ const Header: React.FC = () => {
                 </a>
               </li>
 
-              <li>&copy;2025</li>
+              <li>&copy;2026</li>
             </ul>
           </div>
         </nav>
