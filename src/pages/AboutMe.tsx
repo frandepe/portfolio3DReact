@@ -61,7 +61,7 @@ const AboutMe = () => {
               variant="variant"
               download="CV-Dev Franco De Paulo"
               title={context?.t.translate("about.btnDownloadCV")}
-              href="/CV Generico.pdf"
+              href="/CV Software Developer - Franco De Paulo.pdf"
             />
             {/* <Button
                 variant="default"

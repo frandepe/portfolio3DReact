@@ -80,6 +80,23 @@ export const Jobs = () => {
             </ul>
           </div>
           <p className="mt-3">
+            <b>
+              {context?.t.translate(
+                "portfolio.personalEntrepreneurialProjects",
+              )}
+            </b>
+          </p>
+          <div className="Jobs__container--ul">
+            <ul className="leading-9">
+              <li>
+                <a href="/jobs/vitalica">Vitalica</a>
+              </li>
+              <li>
+                <a href="/jobs/guia-pellegrini">Guía Pellegrini</a>
+              </li>
+            </ul>
+          </div>
+          <p className="mt-3">
             <b>Freelance</b>
           </p>
           <div className="Jobs__container--ul">
@@ -87,6 +104,9 @@ export const Jobs = () => {
               {/* <ul className="leading-9 max-h-52 overflow-x-hidden overflow-y-scroll custom-scrollbar"> */}
               <li>
                 <a href="/jobs/ai-agro">IAgro</a>
+              </li>
+              <li>
+                <a href="/jobs/finanflix">Finanflix</a>
               </li>
               <li>
                 <a href="/jobs/congreso">Congreso Nacional RCP</a>
@@ -99,9 +119,6 @@ export const Jobs = () => {
               </li>
               <li>
                 <a href="/jobs/ndcapacitaciones">NDCapacitaciones</a>
-              </li>
-              <li>
-                <a href="/jobs/guia-pellegrini">Guía Pellegrini</a>
               </li>
             </ul>
           </div>
