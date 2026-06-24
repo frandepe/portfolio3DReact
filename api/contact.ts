@@ -17,6 +17,7 @@ declare const process: {
 };
 
 const FIELD_LABELS: Record<string, string> = {
+  request_type: "Tipo de solicitud",
   type_of_web: "Tipo de web",
   operation: "Funcionamiento",
   referencia: "Referencia de diseno",
@@ -30,6 +31,7 @@ const FIELD_LABELS: Record<string, string> = {
 };
 
 const FIELD_ORDER = [
+  "request_type",
   "type_of_web",
   "operation",
   "referencia",
@@ -91,6 +93,17 @@ function formatValue(value: ContactValue): string {
 }
 
 function formatDiscordMessage(payload: ContactPayload): string {
+  if (payload.request_type === "advisory") {
+    return [
+      "Nueva solicitud de asesoramiento",
+      "",
+      `**Email:** ${formatValue(payload.email ?? "")}`,
+      "",
+      "No completar cuestionario",
+      "Solicita contacto personalizado",
+    ].join("\n");
+  }
+
   const knownFields = FIELD_ORDER.filter((key) => key in payload);
   const extraFields = Object.keys(payload).filter(
     (key) => !FIELD_ORDER.includes(key)
