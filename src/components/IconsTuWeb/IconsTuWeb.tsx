@@ -41,27 +41,26 @@ export default function IconsTuWeb() {
     },
     {
       icon: <MdBrush />,
-      title: "Diseño gráfico",
-      description: "Branding y diseño para una marca atractiva y profesional.",
+      title: "Diseño profesional",
+      description: "Una interfaz moderna y cuidada que transmita confianza.",
     },
     {
       icon: <MdExtension />,
-      title: "Tecnología ampliable",
+      title: "Preparada para crecer",
       description:
-        "Escalabilidad asegurada. Tu web crecerá junto a tu negocio.",
+        "Tu web podrá incorporar nuevas funcionalidades a medida que tu negocio evolucione.",
     },
     {
       icon: <MdCloud />,
-      title: "Alojamiento web",
-      description:
-        "Te ayudo a encontrar el mejor dominio y hosting con SSL al mejor precio.",
+      title: "Hosting y dominio",
+      description: "Te asesoro en la elección del dominio y hosting adecuados.",
     },
   ];
 
   return (
     <section className="mt-40">
       <h2 className="text-4xl text-center mb-6 text-slate-200">
-        Características clave
+        ¿Qué incluye tu proyecto?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-6">
         {cualidades.map((item, index) => (

@@ -1,15 +1,16 @@
 import Button from "@/components/Button/Button";
-import { CarouselTechFreelance } from "@/components/CarouselTech/CarouselTechFreelance";
 import { CodeIsYour } from "@/components/CodeIsYour/CodeIsYour";
+
 import { DatabaseMotion } from "@/components/DatabaseMotion/DatabaseMotion";
 import { Faq } from "@/components/Faq/Faq";
-import FormSteps from "@/components/FormSteps/FormSteps";
 import IconsTuWeb from "@/components/IconsTuWeb/IconsTuWeb";
+import { ContactPathSelector } from "@/components/ContactPathSelector/ContactPathSelector";
 
 import ScrollVelocity from "@/components/ScrollVelocity/ScrollVelocity";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import StarsCanvas from "@/components/StarsBackground/StarBackground";
-import { TextWithImageMotion } from "@/components/TextWithImageMotion/TextWithImageMotion";
+
+import { TextWithImage } from "@/components/TextWithImageMotion/TextWithImageMotion";
 import AnimatedWordCycle from "@/components/ui/animated-text-cycle";
 import { Globe } from "@/components/ui/globe";
 import { motion } from "framer-motion";
@@ -53,21 +54,23 @@ const WebForClient = () => {
         velocity={20}
         className="custom-scroll-text text-gray-400"
       />
-      <div className="flex flex-col md:flex-row justify-center gap-4 xl:container mt-20 md:mt-64 text-slate-200">
+      <div className="my-40">
+        <TextWithImage />
+      </div>
+      <div className="flex flex-col md:flex-row justify-center gap-4 xl:container  text-slate-200">
         <SpotlightCard
           className="w-full md:w-[40%] flex flex-col overflow-hidden"
           spotlightColor="rgba(99, 124, 206, 0.5)"
         >
           <div className="p-4">
             <h4 className="text-lg font-bold mb-1">
-              Responsive y Mobile First
+              Tu web lista para cualquier dispositivo
             </h4>
             <p className=" text-gray-400">
-              Transformo tu sitio web para que se adapte perfectamente a
-              cualquier dispositivo. Con un diseño mobile-first, aseguro que tu
-              página ofrezca una experiencia óptima tanto en móviles como en
-              computadoras, priorizando la velocidad y la usabilidad en todos
-              los tamaños de pantalla.
+              Hoy la mayoría de las visitas provienen de teléfonos móviles. Por
+              eso desarrollo sitios optimizados para celulares, tablets y
+              computadoras, garantizando una experiencia fluida que ayuda a
+              generar más consultas y oportunidades de negocio.
             </p>
           </div>
           <div className="flex justify-center">
@@ -90,13 +93,13 @@ const WebForClient = () => {
           <div className="p-4">
             <div className="p-4">
               <h4 className="text-lg font-bold mb-1">
-                Transforma Tu Proyecto Digital
+                Una web preparada para crecer
               </h4>
               <p className="text-gray-400">
-                Conecta tu web a un CMS, optimízala para SEO, mejora la
-                experiencia de usuario y hazla más segura. Te ofrezco soluciones
-                personalizadas que llevarán tu presencia online al siguiente
-                nivel.
+                Conectá tu sitio con las herramientas que tu negocio necesita
+                hoy y en el futuro. Desde formularios y paneles de
+                administración hasta optimización para buscadores, desarrollo
+                soluciones pensadas para acompañar el crecimiento de tu marca.
               </p>
             </div>
           </div>
@@ -124,11 +127,12 @@ const WebForClient = () => {
           className="w-full md:w-[40%]"
         >
           <div className="p-4">
-            <h4 className="text-lg font-bold mb-1">El Código Es Tuyo</h4>
+            <h4 className="text-lg font-bold mb-1">Tu web es 100% tuya</h4>
             <p className="text-gray-400">
-              Una vez entregado tendrás total libertad para personalizarlo y
-              adaptarlo a tus necesidades. Siéntete libre de hacer cualquier
-              modificación y mejora que consideres necesaria.
+              Al finalizar el proyecto recibirás acceso completo al código y a
+              todos los recursos necesarios para administrarlo. No dependerás de
+              mí para realizar cambios, agregar funcionalidades o continuar el
+              desarrollo en el futuro.
             </p>
           </div>
           <CodeIsYour />
@@ -136,16 +140,17 @@ const WebForClient = () => {
       </div>
 
       {/* Stack de trabajo */}
-      <div className="mt-60">
-        <h4 className="text-slate-200 text-4xl text-center mb-10">
-          Mi Stack de trabajo
-        </h4>
-        <CarouselTechFreelance />
-      </div>
+
       <div className="sm:container">
         <IconsTuWeb />
       </div>
-      <TextWithImageMotion />
+
+      <div className="flex flex-col items-center my-20">
+        <h4 className="text-slate-200 text-4xl text-center mb-10">
+          Preguntas frecuentes
+        </h4>
+        <Faq />
+      </div>
 
       <SpotlightCard
         className="py-4 flex items-center justify-center text-slate-200"
@@ -157,38 +162,16 @@ const WebForClient = () => {
           id="formulario"
         >
           <div>
-            <h2 className="text-2xl mb-2">¿Comenzamos?</h2>
+            <h2 className="text-2xl mb-2">Contame sobre tu proyecto</h2>
             <h4 className="lg:w-[500px] w-[350px]">
-              Cuéntame sobre tu web ideal. Completa el formulario con los
-              detalles clave para que pueda entender tus necesidades y brindarte
-              un presupuesto acorde a tu proyecto.
+              Podés solicitar un presupuesto detallado o dejar tu email para que
+              te asesore personalmente. Elegí la opción que mejor se adapte a tu
+              situación.
             </h4>
           </div>
-          <FormSteps />
+          <ContactPathSelector />
         </div>
       </SpotlightCard>
-
-      <div className="flex flex-col items-center my-20">
-        <h4 className="text-slate-200 text-4xl text-center mb-10">
-          Preguntas frecuentes
-        </h4>
-        <Faq />
-      </div>
-      {/* <CountUp
-        from={0}
-        to={100}
-        separator=","
-        direction="up"
-        duration={1}
-        className="count-up-text"
-      /> */}
-      {/* <ShuffleCards /> */}
-      {/* <CircularText
-        text="REACT*BITS*COMPONENTS*"
-        onHover="speedUp"
-        spinDuration={20}
-        className="custom-class"
-      /> */}
     </div>
   );
 };

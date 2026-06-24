@@ -10,42 +10,43 @@ type FAQItem = {
 
 const defaultData: FAQItem[] = [
   {
-    answer:
-      "Brindo servicios de desarrollo web para clientes de cualquier parte del mundo. No importa dónde te encuentres, puedo ayudarte a crear una página web profesional y adaptada a tus necesidades.",
-    // icon: "❤️",
-    // iconPosition: "right", // Asegúrate de que esto sea uno de los valores posibles
     id: 1,
-    question: "¿En qué zonas ofreces tus servicios?",
+    question: "¿En qué zonas ofrecés tus servicios?",
+    answer:
+      "Trabajo de forma remota con clientes de cualquier lugar. Podemos coordinar todo el proyecto online, desde la primera consulta hasta la entrega final.",
   },
   {
-    answer:
-      "Sí, puedo realizar ajustes y mejoras en páginas web ya creadas. Ya sea que necesites actualizar el diseño, agregar nuevas funciones o mejorar la experiencia de usuario, puedo ayudarte a optimizar tu sitio.",
-    iconPosition: "left", // Agregado el valor de iconPosition
     id: 2,
     question: "¿Hacés modificaciones en sitios web existentes?",
+    answer:
+      "Sí. Puedo ayudarte a mejorar una web ya publicada, corregir errores, actualizar el diseño, sumar funcionalidades u optimizar su rendimiento.",
+    iconPosition: "left",
   },
   {
-    answer:
-      "El tiempo de desarrollo varía según la complejidad del proyecto, pero en la mayoría de los casos, tu web puede estar lista en un plazo de hasta 30 días desde la confirmación del trabajo y la entrega de toda la información necesaria.",
-    iconPosition: "right", // Agregado el valor de iconPosition
     id: 3,
     question: "¿Cuánto tiempo tarda en estar lista mi página web?",
+    answer:
+      "Depende del alcance del proyecto. Una web simple puede estar lista en pocas semanas, mientras que un sitio con más secciones o funcionalidades puede requerir más tiempo. Antes de empezar, te indico un plazo estimado claro.",
+    iconPosition: "right",
   },
   {
-    answer:
-      "Cada proyecto de diseño web es único. El tiempo de desarrollo varía según las necesidades específicas de cada cliente, lo que influye directamente en el costo final. El precio dependerá de factores como la complejidad del diseño, funcionalidades requeridas, sistema de gestión de contenidos, y otros elementos específicos que necesites para tu negocio online.",
-    // icon: "⭐",
-    // iconPosition: "left", // Correctamente definido
     id: 4,
     question: "¿Cuánto cuesta realizar una página web?",
+    answer:
+      "El precio depende del tipo de sitio, cantidad de secciones, diseño y funcionalidades necesarias. Por eso trabajo con presupuestos personalizados según cada proyecto.",
   },
   {
-    answer:
-      "A diferencia de las soluciones 'de plantilla' como WordPress, trabajo con tecnologías modernas de desarrollo web que ofrecen mayor rendimiento, seguridad y flexibilidad. Mi stack tecnológico personalizado permite crear sitios web más rápidos, más seguros y completamente adaptados a tus necesidades específicas, sin las limitaciones y vulnerabilidades comunes de los CMS tradicionales. Es como comparar un traje hecho a medida con uno de tienda: ambos te visten, pero solo uno se ajusta perfectamente a ti.",
-    icon: "🚀",
-    iconPosition: "left",
     id: 5,
-    question: "¿Utilizas WordPress para desarrollar tus sitios web?",
+    question: "¿Voy a poder administrar mi sitio web?",
+    answer:
+      "Sí. Si el proyecto lo requiere, puedo implementar un panel de administración para que puedas actualizar contenido, imágenes o información sin conocimientos técnicos.",
+    iconPosition: "left",
+  },
+  {
+    id: 6,
+    question: "¿La web queda a mi nombre?",
+    answer:
+      "Sí. El dominio, hosting, accesos y código pueden quedar bajo tu propiedad. Mi objetivo es que tengas control real sobre tu sitio y no dependas de mí para todo.",
   },
 ];
 
