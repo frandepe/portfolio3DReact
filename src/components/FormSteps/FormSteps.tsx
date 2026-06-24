@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { motion } from "framer-motion";
 import Button from "../Button/Button";
 import {
@@ -10,13 +9,6 @@ import {
 } from "../ui/stepper";
 import { ToastContainer, toast } from "react-toastify";
 import LoaderOne from "@/utils/Loading";
-
-const { VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY } = import.meta.env;
-
-const supabase = createClient(
-  VITE_SUPABASE_URL as string,
-  VITE_SUPABASE_ANON_KEY as string
-);
 
 const steps = [
   {
@@ -206,21 +198,30 @@ export default function FormSteps() {
       finalAnswers["type_of_web"] = customTypeForWeb;
     }
 
-    const { error } = await supabase
-      .from("WebClientSteps")
-      .insert([finalAnswers]);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalAnswers),
+      });
 
-    if (!error) {
+      if (!response.ok) {
+        throw new Error("Contact request failed");
+      }
+
       toast.success(
         "¡Gracias por tu interés! Recibí tu solicitud y me pondré en contacto contigo a la brevedad para conversar sobre tu proyecto."
       );
       setSubmitted(true); // Deshabilita el botón tras el envío exitoso
-    } else {
+    } catch {
       toast.error(
         "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez, o escribime a frandepaulo23@gmail.com"
       );
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   if (submitted) {
