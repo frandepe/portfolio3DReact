@@ -21,6 +21,7 @@ import { FaLinkedin } from "react-icons/fa";
 import AIAgro from "./pages/Jobs/AIAgro";
 import Vitalica from "./pages/Jobs/Vitalica";
 import Finanflix from "./pages/Jobs/Finanflix";
+import InsideUco from "./pages/Jobs/insideuco";
 
 function PageWrapper({ children }: any) {
   return (
@@ -115,6 +116,7 @@ function App() {
           <Route path="/jobs/ai-agro" element={<AIAgro />} />
           <Route path="/jobs/vitalica" element={<Vitalica />} />
           <Route path="/jobs/finanflix" element={<Finanflix />} />
+          <Route path="/jobs/inside-uco" element={<InsideUco />} />
           <Route path="/practices/mil-opciones" element={<MilOpciones />} />
         </Routes>
       </AnimatePresence>

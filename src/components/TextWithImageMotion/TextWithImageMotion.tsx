@@ -1,8 +1,8 @@
 export function TextWithImage() {
   return (
-    <section className="w-full overflow-hidden px-4 py-12 sm:px-6 md:py-16 lg:py-24">
-      <div className="container mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12">
-        <div className="text-center lg:text-left">
+    <section className="w-full max-w-full overflow-x-hidden px-4 py-10 sm:px-6 md:py-16 lg:overflow-hidden lg:py-24">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-12">
+        <div className="min-w-0 text-center lg:text-left">
           <span className="mb-4 inline-flex max-w-full items-center rounded-full border border-slate-700 px-3 py-1 text-xs text-slate-300 sm:text-sm">
             Experiencia profesional
           </span>
@@ -43,14 +43,14 @@ export function TextWithImage() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-xl min-w-0 overflow-visible lg:max-w-none">
           <div className="absolute inset-0 bg-slate-500/10 blur-3xl rounded-full" />
 
           <img
             src="/assets/natura-banner.jpg"
             alt="Oficinas de Natura"
             draggable={false}
-            className="relative aspect-[4/3] w-full rounded-2xl border border-slate-700 object-cover shadow-2xl sm:aspect-video sm:rounded-3xl lg:aspect-[4/3]"
+            className="relative h-auto w-full rounded-2xl border border-slate-700 object-contain shadow-2xl sm:rounded-3xl lg:aspect-[4/3] lg:object-cover"
           />
         </div>
       </div>
