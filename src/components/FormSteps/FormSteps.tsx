@@ -15,51 +15,41 @@ const steps = [
     key: "type_of_web",
     question: "¿Qué tipo de web necesitas?",
     options: [
-      "Página informativa",
-      "Tienda online",
-      "Blog",
-      "Plataforma de reservas",
-      "Red social",
-      "Foro",
-      "Portfolio",
-      "Plataforma educativa",
-      "Sitio de membresía",
-      "Directorio de empresas",
-      "Marketplace",
+      "Web institucional / informativa",
       "Landing page",
-      "Web de noticias",
-      "Intranet",
-      "Sitio de crowdfunding",
+      "Tienda online",
+      "Blog / sitio de contenidos",
+      "Sistema de reservas o turnos",
+      "Plataforma educativa",
+      "Marketplace",
       "Otro",
     ],
     type: "select",
   },
   {
     key: "operation",
-    question: "¿Cómo debería funcionar tu web?",
+    question: "¿Necesitás poder administrar el contenido?",
     description:
-      "Web estática: Sencilla y rápida. Web dinámica: Con funcionalidades avanzadas.",
-    options: ["Web estática", "Web dinámica"],
+      "Por ejemplo: cambiar textos, imágenes, productos, publicaciones o servicios sin depender de un desarrollador.",
+    options: [
+      "No, solo necesito una web simple",
+      "Sí, quiero poder editar contenido",
+      "No estoy seguro",
+    ],
     type: "select",
   },
   {
     key: "referencia",
-    question: "¿Tienes alguna referencia de diseño o estilo que te guste?",
+    question: "¿Tenés alguna referencia visual?",
     options: [
-      "Sí, tengo ejemplos",
-      "No, pero quiero sugerencias",
-      "Minimalista",
-      "Llamativo",
-      "Moderno",
-      "Clásico",
-      "Elegante",
-      "Tecnológico",
+      "Sí, tengo ejemplos que puedo mostrarte",
+      "No, necesito sugerencias",
     ],
     type: "select",
   },
   {
     key: "sections",
-    question: "¿Qué secciones debe tener tu web?",
+    question: "¿Qué secciones debe tener?",
     options: [
       "Inicio",
       "Sobre nosotros",
@@ -68,23 +58,24 @@ const steps = [
       "Contacto",
       "Testimonios",
       "Preguntas Frecuentes",
-      "Otra (Especificar)",
+      "Otra",
     ],
     type: "checkbox",
   },
   {
     key: "functionalities",
-    question: "¿Qué funciones especiales necesita tu web?",
+    question: "¿Qué funcionalidades necesitás?",
     options: [
       "Formulario de contacto",
-      "Chat en vivo",
-      "Registro e inicio de sesión de usuarios",
-      "Pasarela de pagos (PayPal, Mercado Pago, Stripe)",
-      "Integración con redes sociales",
-      "Blog con sistema de publicaciones",
-      "Sistema de reservas o citas",
-      "Multilenguaje",
-      "Otra (Especificar)",
+      "Registro e inicio de sesión",
+      "Panel de administración",
+      "Registro e inicio de sesión",
+      "Pagos online",
+      "Reservas o turnos",
+      "Blog / publicaciones",
+      "Multiidioma",
+      "No estoy seguro",
+      "Otra",
     ],
     type: "checkbox",
   },
@@ -93,16 +84,17 @@ const steps = [
     question: "¿Tienes un presupuesto estimado? (USD)",
     options: [
       "No estoy seguro",
-      "Menos de $500",
-      "Entre $500 y $1000",
-      "Más de $1000",
+      "Hasta USD 500",
+      "Entre USD 500 y USD 1000",
+      "Entre USD 1000 y USD 2000",
+      "Más de USD 2000",
     ],
     type: "select",
   },
   {
     key: "message",
     question:
-      "Cuéntame más sobre tu idea, ¿algún detalle especial que no hayamos cubierto?",
+      "Contame brevemente tu idea. Podés incluir referencias, objetivos del proyecto, plazos o cualquier detalle importante.",
     type: "textarea",
   },
   {
@@ -117,7 +109,7 @@ const steps = [
   },
   {
     key: "tel",
-    question: "Tu número de teléfono:",
+    question: "Tu número de teléfono (opcional):",
     type: "text",
   },
 ];
@@ -212,12 +204,12 @@ export default function FormSteps() {
       }
 
       toast.success(
-        "¡Gracias por tu interés! Recibí tu solicitud y me pondré en contacto contigo a la brevedad para conversar sobre tu proyecto."
+        "¡Gracias por tu interés! Recibí tu solicitud y me pondré en contacto contigo a la brevedad para conversar sobre tu proyecto.",
       );
       setSubmitted(true); // Deshabilita el botón tras el envío exitoso
     } catch {
       toast.error(
-        "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez, o escribime a frandepaulo23@gmail.com"
+        "No se pudo enviar tu solicitud. Verifica los campos e inténtalo otra vez, o escribime a frandepaulo23@gmail.com",
       );
     } finally {
       setLoading(false);
