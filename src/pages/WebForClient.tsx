@@ -15,6 +15,7 @@ import AnimatedWordCycle from "@/components/ui/animated-text-cycle";
 import { Globe } from "@/components/ui/globe";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { CarouselMarcas } from "@/components/CarouselTech/CarouselMarcas";
 
 const WebForClient = () => {
   const formularioRef = useRef<HTMLDivElement | null>(null);
@@ -54,9 +55,10 @@ const WebForClient = () => {
         velocity={20}
         className="custom-scroll-text text-gray-400"
       />
-      <div className="my-40">
+      <div className="my-20">
         <TextWithImage />
       </div>
+      <CarouselMarcas />
       <div className="flex flex-col md:flex-row justify-center gap-4 xl:container  text-slate-200">
         <SpotlightCard
           className="w-full md:w-[40%] flex flex-col overflow-hidden"

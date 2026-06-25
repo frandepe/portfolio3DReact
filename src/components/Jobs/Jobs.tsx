@@ -109,6 +109,9 @@ export const Jobs = () => {
                 <a href="/jobs/finanflix">Finanflix</a>
               </li>
               <li>
+                <a href="/jobs/inside-uco">Inside Uco</a>
+              </li>
+              <li>
                 <a href="/jobs/congreso">Congreso Nacional RCP</a>
               </li>
               <li>
