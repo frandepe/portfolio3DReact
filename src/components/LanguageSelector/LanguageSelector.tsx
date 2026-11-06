@@ -14,7 +14,7 @@ export const LanguageSelector = () => {
 
   if (context === null) {
     throw new Error(
-      "The I18n context is not initialized. Make sure you have the provider set up correctly."
+      "The I18n context is not initialized. Make sure you have the provider set up correctly.",
     );
   }
 
@@ -24,7 +24,7 @@ export const LanguageSelector = () => {
   };
 
   const selectedLanguage = languages.find(
-    (lang) => lang.value === context.language
+    (lang) => lang.value === context.language,
   );
 
   return (

@@ -44,11 +44,47 @@
   color: #7d87ae;
 }
 
-.menu-toggle {
+.header-actions {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 12px 20px;
+  background: rgba(15, 23, 42, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    backdrop-filter 0.2s ease;
+}
+
+.header-actions.menu-open {
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.header-actions.menu-open .language-selector {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-actions.menu-open .menu-toggle {
+  pointer-events: auto;
+}
+
+.menu-toggle {
+  position: relative;
+  pointer-events: auto;
   width: 40px;
   height: 40px;
   background: none;
@@ -59,12 +95,9 @@
 }
 
 .language-selector {
-  position: fixed;
-  top: 20px;
-  right: 250px;
-  z-index: 49;
-  width: 40px;
-  height: 40px;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
   background: none;
   border: none;
   cursor: pointer;
@@ -81,6 +114,18 @@
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 480px) {
+  .header-actions {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .header-actions .language-selector > div {
+    width: 160px;
+  }
+}
+
 #burger .top,
 #burger .mid,
 #burger .bot {

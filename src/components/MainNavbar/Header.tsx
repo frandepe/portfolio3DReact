@@ -189,41 +189,53 @@ const Header: React.FC = () => {
           </div>
         </nav>
       </div>
-      <div className="language-selector">
-        <LanguageSelector />
-      </div>
-      <button className="menu-toggle" onClick={toggleMenu}>
-        <svg
-          id="burger"
-          ref={burgerRef}
-          width="30"
-          height="30"
-          className="openmenu"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 30 30"
+      <div className={`header-actions ${menuIsOpen ? "menu-open" : ""}`}>
+        <div className="language-selector">
+          <LanguageSelector />
+        </div>
+        <button
+          type="button"
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label={menuIsOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuIsOpen}
         >
-          {/* Línea superior */}
-          <path className="top stroke-white" d="M0 6h30v2H0z" strokeWidth="2" />
+          <svg
+            id="burger"
+            ref={burgerRef}
+            width="30"
+            height="30"
+            className="openmenu"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 30 30"
+          >
+            {/* Línea superior */}
+            <path
+              className="top stroke-white"
+              d="M0 6h30v2H0z"
+              strokeWidth="2"
+            />
 
-          {/* Línea del medio */}
-          <line
-            className="mid stroke-white"
-            x1="0"
-            y1="14"
-            x2="30"
-            y2="14"
-            strokeWidth="4"
-            vectorEffect="non-scaling-stroke"
-          />
+            {/* Línea del medio */}
+            <line
+              className="mid stroke-white"
+              x1="0"
+              y1="14"
+              x2="30"
+              y2="14"
+              strokeWidth="4"
+              vectorEffect="non-scaling-stroke"
+            />
 
-          {/* Línea inferior */}
-          <path
-            className="bot stroke-white"
-            d="M0 20h30v2H0z"
-            strokeWidth="2"
-          />
-        </svg>
-      </button>
+            {/* Línea inferior */}
+            <path
+              className="bot stroke-white"
+              d="M0 20h30v2H0z"
+              strokeWidth="2"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };
